@@ -8,4 +8,4 @@ git push -u origin main
 
 store cred
 
-
+ git config --global credential.helper store
