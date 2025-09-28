@@ -125,7 +125,7 @@ class StartCommand extends UserCommand
            Request::sendMessage($data);
         }
 
-        $data = "¡Bienvenidos a Nuestro Club!
+         $data['text'] = "¡Bienvenidos a Nuestro Club!
 
 Estamos ubicados sobre la avenida costanera Almte. Brown parador 2 frente al Palacio Piria en la localidad de Punta Lara, Ensenada.
 
