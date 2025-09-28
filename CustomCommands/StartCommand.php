@@ -70,6 +70,7 @@ class StartCommand extends UserCommand
         $data = [
             'chat_id'             => $chat_id,
             'reply_to_message_id' => $message_id,
+            'parse_mode' => 'HTML',
         ];
 
         // Send chat action "typing..."
@@ -125,9 +126,9 @@ class StartCommand extends UserCommand
            Request::sendMessage($data);
         }
 
-         $data['text'] = "¡Bienvenidos a Nuestro Club!
+         $data['text'] = "<b>¡Bienvenidos a Nuestro Club ".trim($from->getFirstName().' '.$from->getLastName())." !</b>".PHP_EOL.
 
-Estamos ubicados sobre la avenida costanera Almte. Brown parador 2 frente al Palacio Piria en la localidad de Punta Lara, Ensenada.
+"Estamos ubicados sobre la avenida costanera Almte. Brown parador 2 frente al Palacio Piria en la localidad de Punta Lara, Ensenada.
 
 En GASAV, nos encargamos de brindarte un servicio completo de guardería para tu equipo deportivo. Contamos con cunas para tablas y ganchos para vela para los amantes del windsurf, lockers para kitesurf, cunas para kayaks y stand up paddle, y lockers pequeños para guardar accesorios de nuestros socios.
 
@@ -135,7 +136,7 @@ Disfrutá de nuestro Salón de Usos Múltiples (SUM). Además, tenemos 2 mangrul
 
 En GASAV, somos uno de los pocos clubes que cuenta con una bajada náutica autorizada. Entre la zona de esparcimiento y el río, encontrarás un lugar para preparar tus equipos antes de entrar al agua. También contamos con una cancha de voley y un sector de parrillas para que puedas disfrutar con tu familia y amigos.
 
-¡Te esperamos para compartir momentos únicos en nuestro club!";
+<b>¡Te esperamos para compartir momentos únicos en nuestro club!</b>";
 
         Request::sendMessage($data);
         // Do nothing
