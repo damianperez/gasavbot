@@ -87,7 +87,7 @@ class StartCommand extends UserCommand
             $from->getLastName(),
             $from->getUsername()
         );
-        $caption = "Bienvenido a Gasav ".$from->getLastName()." ($user_id ".  $from->getUsername().")";
+        $caption = "Bienvenido a Gasav ".trim($from->getFirstName().' '.$from->getLastName())." ($user_id ".  $from->getUsername().")";
 
         // Fetch the most recent user profile photo
         $limit  = 1;
