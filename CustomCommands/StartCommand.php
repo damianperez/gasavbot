@@ -65,7 +65,7 @@ class StartCommand extends SystemCommand
         // $deep_linking_parameter = $this->getMessage()->getText(true);
 
         return $this->replyToChat(
-            'Hi there!' . PHP_EOL .
+            'Hola!' . PHP_EOL .
             'Type /help to see all commands!'
         );
     }
