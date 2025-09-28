@@ -1,63 +1,18 @@
 <?php
-
-/**
- * This file is part of the PHP Telegram Bot example-bot package.
- * https://github.com/php-telegram-bot/example-bot/
- *
- * (c) PHP Telegram Bot Team
- *
- * For the full copyright and license information, please view the LICENSE
- * file that was distributed with this source code.
- */
-
-/**
- * User "/Start" command
- *
- * Simple command that returns info about the current user.
- */
-
 namespace Longman\TelegramBot\Commands\UserCommands;
-
 use Longman\TelegramBot\ChatAction;
 use Longman\TelegramBot\Commands\UserCommand;
 use Longman\TelegramBot\Entities\ServerResponse;
 use Longman\TelegramBot\Entities\UserProfilePhotos;
 use Longman\TelegramBot\Exception\TelegramException;
 use Longman\TelegramBot\Request;
-
 class StartCommand extends UserCommand
 {
-    /**
-     * @var string
-     */
     protected $name = 'Start';
-
-    /**
-     * @var string
-     */
-    protected $description = 'Show your id, name and username';
-
-    /**
-     * @var string
-     */
+    protected $description = 'Arrancar el bot';
     protected $usage = '/Start';
-
-    /**
-     * @var string
-     */
     protected $version = '1.2.0';
-
-    /**
-     * @var bool
-     */
-    protected $private_only = true;
-
-    /**
-     * Main command execution
-     *
-     * @return ServerResponse
-     * @throws TelegramException
-     */
+    protected $private_only = false;
     public function execute(): ServerResponse
     {
         $message = $this->getMessage();
