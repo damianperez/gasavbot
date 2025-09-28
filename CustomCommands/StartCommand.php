@@ -24,7 +24,7 @@ class StartCommand extends UserCommand
 
         $data = [
             'chat_id'             => $chat_id,
-            'reply_to_message_id' => $message_id,
+ //           'reply_to_message_id' => $message_id,
             'parse_mode' => 'HTML',
         ];
 
