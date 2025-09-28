@@ -106,28 +106,22 @@ class StartCommand extends UserCommand
 
             if ($user_profile_photos->getTotalCount() > 0) {
                 $photos = $user_profile_photos->getPhotos();
-
                 // Get the best quality of the profile photo
                 $photo   = end($photos[0]);
                 $file_id = $photo->getFileId();
-
                 $data['photo']   = $file_id;
                 $data['caption'] = $caption;
-
                 Request::sendPhoto($data);
             }
         }
         else
         {
-
             // No Photo just send text
             $data['text'] = $caption;
 
            Request::sendMessage($data);
         }
-
         $texto="<b>¡Bienvenidos a Nuestro Club ".trim($from->getFirstName().' '.$from->getLastName())." !</b>".PHP_EOL.
-
 "Estamos ubicados sobre la avenida costanera Almte. Brown parador 2 frente al Palacio Piria en la localidad de Punta Lara, Ensenada.".PHP_EOL.
 "En <b>GASAV</b>, nos encargamos de brindarte un servicio completo de guardería para tu equipo deportivo.".PHP_EOL.
 "Contamos con cunas para tablas y ganchos para vela para los amantes del windsurf, lockers para kitesurf, cunas para kayaks y stand up paddle, y lockers pequeños para guardar accesorios de nuestros socios.
@@ -137,8 +131,7 @@ Disfrutá de nuestro Salón de Usos Múltiples (SUM). Además, tenemos 2 mangrul
 <b>¡Te esperamos para compartir momentos únicos en nuestro club!</b>";
         $data['caption'] = $texto;
         $data['photo']   = Request::encodeFile($this->telegram->getDownloadPath() . '/Club01.jpg');	        
-        Request::sendPhoto($data);
-        //Request::sendMessage($data);
+        Request::sendPhoto($data);        
         // Do nothing
         return Request::emptyResponse();
     }
