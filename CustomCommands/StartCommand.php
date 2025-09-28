@@ -126,7 +126,7 @@ class StartCommand extends UserCommand
            Request::sendMessage($data);
         }
 
-         $texto = "<b>¡Bienvenidos a Nuestro Club ".trim($from->getFirstName().' '.$from->getLastName())." !</b>".PHP_EOL.
+        $texto="<b>¡Bienvenidos a Nuestro Club ".trim($from->getFirstName().' '.$from->getLastName())." !</b>".PHP_EOL.
 
 "Estamos ubicados sobre la avenida costanera Almte. Brown parador 2 frente al Palacio Piria en la localidad de Punta Lara, Ensenada.
 
@@ -139,8 +139,8 @@ En GASAV, somos uno de los pocos clubes que cuenta con una bajada náutica autor
 <b>¡Te esperamos para compartir momentos únicos en nuestro club!</b>";
         $data['caption'] = $texto;
         $data['photo']   = Request::encodeFile('Club01.jpg');	
-        return Request::sendPhoto($data);
-        Request::sendMessage($data);
+        Request::sendPhoto($data);
+        //Request::sendMessage($data);
         // Do nothing
         return Request::emptyResponse();
     }
