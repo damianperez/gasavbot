@@ -138,7 +138,7 @@ En GASAV, somos uno de los pocos clubes que cuenta con una bajada náutica autor
 
 <b>¡Te esperamos para compartir momentos únicos en nuestro club!</b>";
         $data['caption'] = $texto;
-        $data['photo']   = Request::encodeFile('Club01.jpg');	
+        $data['photo']   = Request::encodeFile( $config['paths']['download'] . '/Club01.jpg');	
         Request::sendPhoto($data);
         //Request::sendMessage($data);
         // Do nothing
