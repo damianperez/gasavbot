@@ -113,13 +113,32 @@ class StartCommand extends UserCommand
                 $data['photo']   = $file_id;
                 $data['caption'] = $caption;
 
-                return Request::sendPhoto($data);
+                Request::sendPhoto($data);
             }
         }
+        else
+        {
 
-        // No Photo just send text
-        $data['text'] = $caption;
+            // No Photo just send text
+            $data['text'] = $caption;
 
-        return Request::sendMessage($data);
+           Request::sendMessage($data);
+        }
+
+        $data = "¡Bienvenidos a Nuestro Club!
+
+Estamos ubicados sobre la avenida costanera Almte. Brown parador 2 frente al Palacio Piria en la localidad de Punta Lara, Ensenada.
+
+En GASAV, nos encargamos de brindarte un servicio completo de guardería para tu equipo deportivo. Contamos con cunas para tablas y ganchos para vela para los amantes del windsurf, lockers para kitesurf, cunas para kayaks y stand up paddle, y lockers pequeños para guardar accesorios de nuestros socios.
+
+Disfrutá de nuestro Salón de Usos Múltiples (SUM). Además, tenemos 2 mangrullos de observación y vigilancia de la zona de navegación, un registro de entradas y salidas, un gomón de rescate y un equipo de radio para comunicarnos con las embarcaciones de vela ligera, clubes vecinos o Prefectura.
+
+En GASAV, somos uno de los pocos clubes que cuenta con una bajada náutica autorizada. Entre la zona de esparcimiento y el río, encontrarás un lugar para preparar tus equipos antes de entrar al agua. También contamos con una cancha de voley y un sector de parrillas para que puedas disfrutar con tu familia y amigos.
+
+¡Te esperamos para compartir momentos únicos en nuestro club!";
+
+        Request::sendMessage($data);
+        // Do nothing
+        return Request::emptyResponse();
     }
 }
