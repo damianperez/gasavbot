@@ -129,9 +129,11 @@ class StartCommand extends UserCommand
         $texto="<b>¡Bienvenidos a Nuestro Club ".trim($from->getFirstName().' '.$from->getLastName())." !</b>".PHP_EOL.
 
 "Estamos ubicados sobre la avenida costanera Almte. Brown parador 2 frente al Palacio Piria en la localidad de Punta Lara, Ensenada.".PHP_EOL.
-"En <b>GASAV</b>, nos encargamos de brindarte un servicio completo de guardería para tu equipo deportivo. Contamos con cunas para tablas y ganchos para vela para los amantes del windsurf, lockers para kitesurf, cunas para kayaks y stand up paddle, y lockers pequeños para guardar accesorios de nuestros socios.
-Disfrutá de nuestro Salón de Usos Múltiples (SUM). Además, tenemos 2 mangrullos de observación y vigilancia de la zona de navegación, un registro de entradas y salidas, un gomón de rescate y un equipo de radio para comunicarnos con las embarcaciones de vela ligera, clubes vecinos o Prefectura.
-En GASAV, somos uno de los pocos clubes que cuenta con una bajada náutica autorizada. Entre la zona de esparcimiento y el río, encontrarás un lugar para preparar tus equipos antes de entrar al agua. También contamos con una cancha de voley y un sector de parrillas para que puedas disfrutar con tu familia y amigos.
+"En <b>GASAV</b>, nos encargamos de brindarte un servicio completo de guardería para tu equipo deportivo.".PHP_EOL.
+"Contamos con cunas para tablas y ganchos para vela para los amantes del windsurf, lockers para kitesurf, cunas para kayaks y stand up paddle, y lockers pequeños para guardar accesorios de nuestros socios.
+Disfrutá de nuestro Salón de Usos Múltiples (SUM). Además, tenemos 2 mangrullos de observación y vigilancia de la zona de navegación, un registro de entradas y salidas, un gomón de rescate y un equipo de radio para comunicarnos con las embarcaciones de vela ligera, clubes vecinos o Prefectura.".PHP_EOL.
+"En GASAV, somos uno de los pocos clubes que cuenta con una <u>bajada náutica autorizada</u>.".PHP_EOL.
+"Entre la zona de esparcimiento y el río, encontrarás un lugar para preparar tus equipos antes de entrar al agua. También contamos con una cancha de voley y un sector de parrillas para que puedas disfrutar con tu familia y amigos.
 <b>¡Te esperamos para compartir momentos únicos en nuestro club!</b>";
         $data['caption'] = $texto;
         $data['photo']   = Request::encodeFile($this->telegram->getDownloadPath() . '/Club01.jpg');	        
