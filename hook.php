@@ -18,7 +18,7 @@
  */
 
 // Load composer
-require_once __DIR__ . '/vendor/autoload.php';
+require_once __DIR__ . '/../vendor/autoload.php';
 
 // Load all configuration options
 /** @var array $config */
@@ -35,7 +35,7 @@ try {
     $telegram->addCommandsPaths($config['commands']['paths']);
 
     // Enable MySQL if required
-    // $telegram->enableMySql($config['mysql']);
+     $telegram->enableMySql($config['mysql']);
 
     // Logging (Error, Debug and Raw Updates)
     // https://github.com/php-telegram-bot/core/blob/master/doc/01-utils.md#logging
@@ -52,8 +52,8 @@ try {
     // );
 
     // Set custom Download and Upload paths
-    // $telegram->setDownloadPath($config['paths']['download']);
-    // $telegram->setUploadPath($config['paths']['upload']);
+     $telegram->setDownloadPath($config['paths']['download']);
+     $telegram->setUploadPath($config['paths']['upload']);
 
     // Load all command-specific configurations
     // foreach ($config['commands']['configs'] as $command_name => $command_config) {
@@ -71,7 +71,7 @@ try {
     Longman\TelegramBot\TelegramLog::error($e);
 
     // Uncomment this to output any errors (ONLY FOR DEVELOPMENT!)
-    // echo $e;
+     echo $e;
 } catch (Longman\TelegramBot\Exception\TelegramLogException $e) {
     // Uncomment this to output log initialisation errors (ONLY FOR DEVELOPMENT!)
     // echo $e;

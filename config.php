@@ -1,28 +1,4 @@
 <?php
-
-/**
- * This file is part of the PHP Telegram Bot example-bot package.
- * https://github.com/php-telegram-bot/example-bot/
- *
- * (c) PHP Telegram Bot Team
- *
- * For the full copyright and license information, please view the LICENSE
- * file that was distributed with this source code.
- */
-
-/**
- * This file contains all the configuration options for the PHP Telegram Bot.
- *
- * It is based on the configuration array of the PHP Telegram Bot Manager project.
- *
- * Simply adjust all the values that you need and extend where necessary.
- *
- * Options marked as [Manager Only] are only required if you use `manager.php`.
- *
- * For a full list of all options, check the Manager Readme:
- * https://github.com/php-telegram-bot/telegram-bot-manager#set-extra-bot-parameters
- */
-
 return [
     // Add you bot's API key and name
     'api_key'      => '8240097934:AAH-5mUoAw_XzbJoZ5SoV3nGsHBktJPqp3k',
@@ -33,7 +9,7 @@ return [
 
     // When using the getUpdates method, this can be commented out
     'webhook'      => [
-        'url' => 'https://your-domain/path/to/hook-or-manager.php',
+        'url' => 'https://bots.perezcompany.com.ar/gasavbot/hook.php',
         // Use self-signed certificate
         // 'certificate'     => __DIR__ . '/path/to/your/certificate.crt',
         // Limit maximum number of connections
@@ -46,7 +22,7 @@ return [
         // DO NOT PUT THE COMMAND FOLDER THERE. IT WILL NOT WORK. 
         // Copy each needed Commandfile into the CustomCommand folder and uncommend the Line 49 below
         'paths'   => [
-            // __DIR__ . '/CustomCommands',
+             __DIR__ . '/CustomCommands',
         ],
         // Here you can set any command-specific parameters
         'configs' => [
@@ -65,17 +41,17 @@ return [
     ],
 
     // Enter your MySQL database credentials
-    // 'mysql'        => [
-    //     'host'     => '127.0.0.1',
-    //     'user'     => 'root',
-    //     'password' => 'root',
-    //     'database' => 'telegram_bot',
-    // ],
+     'mysql'        => [
+         'host'     => '127.0.0.1',
+         'user'     => 'bots',
+         'password' => 'Bots200',
+         'database' => 'bots',
+     ],
 
     // Logging (Debug, Error and Raw Updates)
     // 'logging'  => [
     //     'debug'  => __DIR__ . '/php-telegram-bot-debug.log',
-    //     'error'  => __DIR__ . '/php-telegram-bot-error.log',
+         'error'  => __DIR__ . '/php-telegram-bot-error.log',
     //     'update' => __DIR__ . '/php-telegram-bot-update.log',
     // ],
 
