@@ -126,7 +126,7 @@ class StartCommand extends UserCommand
            Request::sendMessage($data);
         }
 
-         $data['text'] = "<b>¡Bienvenidos a Nuestro Club ".trim($from->getFirstName().' '.$from->getLastName())." !</b>".PHP_EOL.
+         $texto = "<b>¡Bienvenidos a Nuestro Club ".trim($from->getFirstName().' '.$from->getLastName())." !</b>".PHP_EOL.
 
 "Estamos ubicados sobre la avenida costanera Almte. Brown parador 2 frente al Palacio Piria en la localidad de Punta Lara, Ensenada.
 
@@ -137,7 +137,9 @@ Disfrutá de nuestro Salón de Usos Múltiples (SUM). Además, tenemos 2 mangrul
 En GASAV, somos uno de los pocos clubes que cuenta con una bajada náutica autorizada. Entre la zona de esparcimiento y el río, encontrarás un lugar para preparar tus equipos antes de entrar al agua. También contamos con una cancha de voley y un sector de parrillas para que puedas disfrutar con tu familia y amigos.
 
 <b>¡Te esperamos para compartir momentos únicos en nuestro club!</b>";
-
+        $data['caption'] = $texto;
+        $data['photo']   = Request::encodeFile('Club01.jpg');	
+        return Request::sendPhoto($data);
         Request::sendMessage($data);
         // Do nothing
         return Request::emptyResponse();
