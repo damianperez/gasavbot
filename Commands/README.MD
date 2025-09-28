@@ -20,5 +20,8 @@ Please copy each file and/or folder that you need into the CustomCommans folder.
 
 If you want to create your own Command file, please do it so in the CustomCommands folder as well.
 
-If you need, for example, the GenericmessageCommand.php from the Conversation and Group folder, you will need to compare and merge those files. 
+If you need, for example, the GenericmessageCommand.php from the Conversation and Group folder, you will need to compare and merge those files.
 
+git add .
+git commit -m 'VSc'
+git push
