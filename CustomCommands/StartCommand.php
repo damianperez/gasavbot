@@ -89,6 +89,9 @@ Disfrutá de nuestro Salón de Usos Múltiples (SUM). Además, tenemos 2 mangrul
         $data['caption'] = $texto1;
         $data['photo']   = Request::encodeFile($this->telegram->getDownloadPath() . '/Club01.jpg');	        
         Request::sendPhoto($data);        
+        $data['caption'] = $texto2;
+        $data['photo']   = Request::encodeFile($this->telegram->getDownloadPath() . '/Club02.jpg');	        
+        Request::sendPhoto($data);     
         // Do nothing
         return Request::emptyResponse();
     }
