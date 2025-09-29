@@ -37,6 +37,7 @@ return [
 
     // Define all IDs of admin users
     'admins'       => [
+        662767623,
         // 123,
     ],
 
