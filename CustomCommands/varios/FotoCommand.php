@@ -121,10 +121,10 @@ class FotoCommand extends UserCommand
         curl_close($ch);
 
         // Create a DateTime object for the current time
-        $now = new DateTime();
+        $now = new \DateTime();
 
         // Define the target timezone
-        $targetTimezone = new DateTimeZone('Asia/Tokyo');
+        $targetTimezone = new \DateTimeZone('Asia/Tokyo');
 
         // Set the timezone of the DateTime object
         $now->setTimezone($targetTimezone);
