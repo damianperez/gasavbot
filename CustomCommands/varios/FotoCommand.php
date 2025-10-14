@@ -113,7 +113,7 @@ class FotoCommand extends UserCommand
             // Save the image data to a file
             if ($image_data !== false && !empty($image_data)) {
                 file_put_contents($output_file, $image_data);
-                $this->replyToChat( "Snapshot saved to {$output_file}");
+               // $this->replyToChat( "Snapshot saved to {$output_file}");
             } else {
                 return $this->replyToChat( "Failed to retrieve image data. Check camera IP, credentials, and URL.");
             }
