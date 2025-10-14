@@ -101,15 +101,14 @@ class FotoCommand extends UserCommand
         $data['text'] = $snapshot_url;
         Request::sendMessage($data);     
         // Retrieve the image data
-        $image_data = @file_get_contents($snapshot_url);
-
-
-        // Define the file path
+        $image_data = @file_get_contents($snapshot_url);    
+        if ($image_data == false) 
+            return $this->replyToChat('no se pudo abrir la imagen' ,['parse_mode' => 'HTML',]);
         
         $filePath = $this->telegram->getDownloadPath() . '/snapshot.jpg';	        
-        // Save the image to the file
+        
         imagepng($image_data, $filePath);
-        // Destroy the image resource
+        
         imagedestroy($image);
 
         $data['caption'] = 'foto';
