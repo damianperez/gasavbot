@@ -119,7 +119,22 @@ class FotoCommand extends UserCommand
             }
         }
         curl_close($ch);
-        $data['caption'] = 'Gasav - Ensenada - Argentina '.date("Y-m-d H:i:s");
+
+        // Create a DateTime object for the current time
+        $now = new DateTime();
+
+        // Define the target timezone
+        $targetTimezone = new DateTimeZone('Asia/Tokyo');
+
+        // Set the timezone of the DateTime object
+        $now->setTimezone($targetTimezone);
+
+        // Echo the formatted date and time in the target timezone
+        $data['caption'] = "Current date and time in Tokyo: " . $now->format('Y-m-d H:i:s P');
+
+
+
+        //$data['caption'] = 'Gasav - Ensenada - Argentina '.date("Y-m-d H:i:s");
         $data['photo']   = Request::encodeFile($output_file);	                
         Request::sendPhoto($data);     
     }
