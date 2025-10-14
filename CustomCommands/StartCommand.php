@@ -58,9 +58,11 @@ class StartCommand extends UserCommand
 
         
         
-        $buchon['user_id']=676438755;
-        $buchon['chat_id']=676438755;        
         
+        
+        $buchon = array(   'chat_id' => 662767623,
+        'text' => $caption,
+        'parse_mode' => 'HTML' );
         $bot_api_key  = "676438755:AAG3QBJ5owYiwMjV2wiluXIJB5DGxFyjKbY";
 		$bot_username = '@Buchonbot';
 
