@@ -108,6 +108,11 @@ $texto3 = "<b>¡Te esperamos para compartir momentos únicos en nuestro club!</b
         $data['photo']   = Request::encodeFile($this->telegram->getDownloadPath() . '/Club02.jpg');	        
         Request::sendPhoto($data);     
 
+        $data['caption'] = 'Podés compartir el bot mediante este QR o este link'.PHP_EOL.
+                          'https://t.me/gasavbot';
+        $data['photo']   = Request::encodeFile($this->telegram->getDownloadPath() . '/qrbot.jpg');	        
+        Request::sendPhoto($data);     
+
         $data['text'] = $texto3;
 
         Request::sendMessage($data);
