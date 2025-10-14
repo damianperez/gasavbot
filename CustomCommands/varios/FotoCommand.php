@@ -124,8 +124,7 @@ class FotoCommand extends UserCommand
         $now = new \DateTime();
         $targetTimezone = new \DateTimeZone('America/Argentina/Buenos_Aires');
         $now->setTimezone($targetTimezone);
-        $data['caption'] = "Gasav - Ensenada - Argentina " . $now->format('Y-m-d H:i:s P');
-        
+        $data['caption'] = "Gasav - Ensenada - Argentina " . $now->format('Y-m-d H:i');
         $data['photo']   = Request::encodeFile($output_file);	                
         Request::sendPhoto($data);     
     }
