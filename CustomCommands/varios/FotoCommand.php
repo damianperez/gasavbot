@@ -112,11 +112,7 @@ class FotoCommand extends UserCommand
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true); // Return the transfer as a string
         curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true); // Follow any redirects
         curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false); // For HTTPS, if self-signed certs are used (use with caution)
-
-        // Execute the cURL request
         $image_data = curl_exec($ch);
-
-        // Check for cURL errors
         if (curl_errno($ch)) {
             return $this->replyToChat( 'cURL error: ' . curl_error($ch));
         } else {
@@ -128,18 +124,11 @@ class FotoCommand extends UserCommand
                 return $this->replyToChat( "Failed to retrieve image data. Check camera IP, credentials, and URL.");
             }
         }
-
-        // Close the cURL session
         curl_close($ch);
-
-        
-
         $data['caption'] = 'foto';
-        $data['photo']   = Request::encodeFile($filepath);	        
+        $data['photo']   = Request::encodeFile($output_file);	        
         //$data['photo']   = $image_data;
         Request::sendPhoto($data);     
-
-
 /*
 
         if ($image_data !== false) {
