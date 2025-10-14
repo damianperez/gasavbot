@@ -95,16 +95,10 @@ class FotoCommand extends UserCommand
         $channel = '0'; // Adjust if needed for specific channel
         $username = 'Ver'; // Replace with your camera username
         $password = 'PlayaGasav'; // Replace with your camera password
-
         $snapshot_url = "http://{$username}:{$password}@{$ip_address}:{$port}/cgi-bin/snapshot.cgi?channel={$channel}";
         $output_file = $this->telegram->getDownloadPath() .'/snapshot.jpg';
-        $data['text'] = $snapshot_url;
-        Request::sendMessage($data);     
-        
-
-
+        $data['text'] = $snapshot_url;        
         $ch = curl_init();
-
         // Set cURL options
         curl_setopt($ch, CURLOPT_URL, $snapshot_url);
         curl_setopt($ch, CURLOPT_HTTPAUTH, CURLAUTH_DIGEST); // Dahua cameras often use Digest authentication
@@ -126,21 +120,8 @@ class FotoCommand extends UserCommand
         }
         curl_close($ch);
         $data['caption'] = 'foto';
-        $data['photo']   = Request::encodeFile($output_file);	        
-        //$data['photo']   = $image_data;
+        $data['photo']   = Request::encodeFile($output_file);	                
         Request::sendPhoto($data);     
-/*
-
-        if ($image_data !== false) {
-            // Set the appropriate header for image output
-            header('Content-Type: image/jpeg');
-            echo $image_data;
-        } else {
-            echo "Error: Could not retrieve snapshot from Dahua camera.";
-        }
-*/
-        $texto=$snapshot_url;
-        return $this->replyToChat($texto ,['parse_mode' => 'HTML',]);
     }
 }
 
