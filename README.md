@@ -1,7 +1,9 @@
+
+git config --global user.name "John Doe"
+git config --global user.email johndoe@example.com
+
 # PHP Telegram Bot Example
-
 > :construction: Work In Progress :construction:
-
 An A-Z example of Telegram bot using the [PHP Telegram Bot][core-github] library.
 
 This repository aims to demonstrate the usage of all the features offered by the PHP Telegram Bot library and as such contains all example commands.
