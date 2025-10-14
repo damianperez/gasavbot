@@ -103,10 +103,19 @@ class FotoCommand extends UserCommand
         // Retrieve the image data
         $image_data = @file_get_contents($snapshot_url);
 
-        //$data['caption'] = 'foto';
-        //$data['photo']   = Request::encodeFile($snapshot_url);	        
+
+        // Define the file path
+        
+        $filePath = $this->telegram->getDownloadPath() . '/snapshot.jpg';	        
+        // Save the image to the file
+        imagepng($image_data, $filePath);
+        // Destroy the image resource
+        imagedestroy($image);
+
+        $data['caption'] = 'foto';
+        $data['photo']   = Request::encodeFile($filepath);	        
         //$data['photo']   = $image_data;
-        //Request::sendPhoto($data);     
+        Request::sendPhoto($data);     
 
 
 /*
@@ -123,4 +132,6 @@ class FotoCommand extends UserCommand
         return $this->replyToChat($texto ,['parse_mode' => 'HTML',]);
     }
 }
+
+
 
