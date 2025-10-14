@@ -101,10 +101,11 @@ class FotoCommand extends UserCommand
         $data['text'] = $snapshot_url;
         Request::sendMessage($data);     
         // Retrieve the image data
-        //$image_data = @file_get_contents($snapshot_url);
+        $image_data = @file_get_contents($snapshot_url);
 
         $data['caption'] = 'foto';
-        $data['photo']   = Request::encodeFile($snapshot_url);	        
+        //$data['photo']   = Request::encodeFile($snapshot_url);	        
+        $data['photo']   = $image_data;
         Request::sendPhoto($data);     
 
 
