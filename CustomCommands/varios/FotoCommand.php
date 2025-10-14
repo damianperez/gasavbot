@@ -103,13 +103,13 @@ class FotoCommand extends UserCommand
         // Retrieve the image data
         $image_data = @file_get_contents($snapshot_url);
 
-        $data['caption'] = 'foto';
+        //$data['caption'] = 'foto';
         //$data['photo']   = Request::encodeFile($snapshot_url);	        
-        $data['photo']   = $image_data;
-        Request::sendPhoto($data);     
+        //$data['photo']   = $image_data;
+        //Request::sendPhoto($data);     
 
 
-
+/*
 
         if ($image_data !== false) {
             // Set the appropriate header for image output
@@ -118,8 +118,8 @@ class FotoCommand extends UserCommand
         } else {
             echo "Error: Could not retrieve snapshot from Dahua camera.";
         }
-
-        $texto='aa';
+*/
+        $texto=$snapshot_url;
         return $this->replyToChat($texto ,['parse_mode' => 'HTML',]);
     }
 }
