@@ -76,20 +76,15 @@ class FotoCommand extends UserCommand
     {
         $message = $this->getMessage();
         $text    = $message->getText(true);
-
-        $message = $this->getMessage();
         $from       = $message->getFrom();
         $user_id    = $from->getId();
         $chat_id    = $message->getChat()->getId();
         $message_id = $message->getMessageId();
-
         $data = [
             'chat_id'             => $chat_id,
  //           'reply_to_message_id' => $message_id,
             'parse_mode' => 'HTML',
         ];
-
-
         $ip_address = '200.114.85.10'; // Replace with your camera's IP
         $port = '80'; // Replace with your camera's HTTP port if different
         $channel = '0'; // Adjust if needed for specific channel
@@ -98,8 +93,7 @@ class FotoCommand extends UserCommand
         $snapshot_url = "http://{$username}:{$password}@{$ip_address}:{$port}/cgi-bin/snapshot.cgi?channel={$channel}";
         $output_file = $this->telegram->getDownloadPath() .'/snapshot.jpg';
         $data['text'] = $snapshot_url;        
-        $ch = curl_init();
-        // Set cURL options
+        $ch = curl_init();        
         curl_setopt($ch, CURLOPT_URL, $snapshot_url);
         curl_setopt($ch, CURLOPT_HTTPAUTH, CURLAUTH_DIGEST); // Dahua cameras often use Digest authentication
         curl_setopt($ch, CURLOPT_USERPWD, "{$username}:{$password}");
@@ -119,8 +113,6 @@ class FotoCommand extends UserCommand
             }
         }
         curl_close($ch);
-
-
         $now = new \DateTime();
         $targetTimezone = new \DateTimeZone('America/Argentina/Buenos_Aires');
         $now->setTimezone($targetTimezone);
