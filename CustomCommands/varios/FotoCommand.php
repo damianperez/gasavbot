@@ -16,23 +16,7 @@ class FotoCommand extends UserCommand
      * @var Client
      */
     private $client;
-    
-
-
-
-
-
-    public $cook = "mariweb_session=1c15115edecae9adeb17ce8b689fcda0; mw_lang=EN";
-    public $url_post = 'http://meteo.comisionriodelaplata.org/ecsCommand.php?c=telemetry/updateTelemetry&s=0.8081622188540726';
-    public $headers = [ ];
-    
-    public $parametros = ['p'=> 1,
-            'p1' => 2,
-            'p2' => '2',            
-            'p3' => '1', 
-            'p4' => 'update',                      
-            ];
-    public $opciones =[];
+   
         
  //       'allow_redirects' => true,
  //       'verify' => false,
@@ -44,24 +28,11 @@ class FotoCommand extends UserCommand
  * 
  * */
    
-    /**
-     * @var string
-     */
-    protected $name = 'Foto';
     
-    /**
-     * @var string
-     */
-    protected $description = 'Foto';
+    protected $name = 'Foto';    
+    protected $description = 'Snapshot de la cámara';
 
-    /**
-     * @var string
-     */
     protected $usage = '/Foto';
-
-    /**
-     * @var string
-     */
     protected $version = '1.2.0';
 
     /**
