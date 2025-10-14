@@ -98,6 +98,8 @@ class FotoCommand extends UserCommand
 
         $snapshot_url = "http://{$username}:{$password}@{$ip_address}:{$port}/cgi-bin/snapshot.cgi?channel={$channel}";
 
+        $data['text'] = $snapshot_url;
+        Request::sendMessage($data);     
         // Retrieve the image data
         //$image_data = @file_get_contents($snapshot_url);
 
