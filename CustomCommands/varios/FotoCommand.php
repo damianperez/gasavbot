@@ -119,7 +119,7 @@ class FotoCommand extends UserCommand
             }
         }
         curl_close($ch);
-        $data['caption'] = 'foto';
+        $data['caption'] = 'Gasav - Ensenada - Argentina '.date("Y-m-d H:i:s");
         $data['photo']   = Request::encodeFile($output_file);	                
         Request::sendPhoto($data);     
     }
