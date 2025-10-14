@@ -1,7 +1,7 @@
 <?php
 return [
     // Add you bot's API key and name
-   // 'api_key'      => 'DDDD8240097934:AAH-5mUoAw_XzbJoZ5SoV3nGsHBktJPqp3k',
+    'api_key'      => '8240097934:AAH-5mUoAw_XzbJoZ5SoV3nGsHBktJPqp3k',
     'bot_username' => 'gasavbot', // Without "@"
 
     // [Manager Only] Secret key required to access the webhook
