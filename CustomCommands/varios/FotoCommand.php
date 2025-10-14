@@ -97,19 +97,42 @@ class FotoCommand extends UserCommand
         $password = 'PlayaGasav'; // Replace with your camera password
 
         $snapshot_url = "http://{$username}:{$password}@{$ip_address}:{$port}/cgi-bin/snapshot.cgi?channel={$channel}";
-
+        $output_file = $this->telegram->getDownloadPath() .'/snapshot.jpg';
         $data['text'] = $snapshot_url;
         Request::sendMessage($data);     
-        // Retrieve the image data
-        $image_data = @file_get_contents($snapshot_url);    
-        if ($image_data == false) 
-            return $this->replyToChat('no se pudo abrir la imagen' ,['parse_mode' => 'HTML',]);
         
-        $filePath = $this->telegram->getDownloadPath() . '/snapshot.jpg';	        
+
+
+        $ch = curl_init();
+
+        // Set cURL options
+        curl_setopt($ch, CURLOPT_URL, $snapshot_url);
+        curl_setopt($ch, CURLOPT_HTTPAUTH, CURLAUTH_DIGEST); // Dahua cameras often use Digest authentication
+        curl_setopt($ch, CURLOPT_USERPWD, "{$username}:{$password}");
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true); // Return the transfer as a string
+        curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true); // Follow any redirects
+        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false); // For HTTPS, if self-signed certs are used (use with caution)
+
+        // Execute the cURL request
+        $image_data = curl_exec($ch);
+
+        // Check for cURL errors
+        if (curl_errno($ch)) {
+            return $this->replyToChat( 'cURL error: ' . curl_error($ch));
+        } else {
+            // Save the image data to a file
+            if ($image_data !== false && !empty($image_data)) {
+                file_put_contents($output_file, $image_data);
+                $this->replyToChat( "Snapshot saved to {$output_file}");
+            } else {
+                return $this->replyToChat( "Failed to retrieve image data. Check camera IP, credentials, and URL.");
+            }
+        }
+
+        // Close the cURL session
+        curl_close($ch);
+
         
-        imagepng($image_data, $filePath);
-        
-        imagedestroy($image);
 
         $data['caption'] = 'foto';
         $data['photo']   = Request::encodeFile($filepath);	        
