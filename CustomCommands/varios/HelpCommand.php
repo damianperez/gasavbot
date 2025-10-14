@@ -25,32 +25,12 @@ use Longman\TelegramBot\Exception\TelegramException;
 
 class HelpCommand extends UserCommand
 {
-    /**
-     * @var string
-     */
+    
     protected $name = 'help';
-
-    /**
-     * @var string
-     */
-    protected $description = 'Show bot commands help';
-
-    /**
-     * @var string
-     */
+    protected $description = 'Ayuda. Lista de comandos';
     protected $usage = '/help or /help <command>';
 
-    /**
-     * @var string
-     */
     protected $version = '1.4.0';
-
-    /**
-     * Main command execution
-     *
-     * @return ServerResponse
-     * @throws TelegramException
-     */
     public function execute(): ServerResponse
     {
         $message     = $this->getMessage();

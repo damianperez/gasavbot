@@ -9,7 +9,7 @@ use Longman\TelegramBot\Request;
 class StartCommand extends UserCommand
 {
     protected $name = 'Start';
-    protected $description = 'Arrancar el bot';
+    protected $description = 'Arranca el bot, muestra el QR';
     protected $usage = '/Start';
     protected $version = '1.2.0';
     protected $private_only = false;
@@ -118,5 +118,11 @@ $texto3 = "<b>¡Te esperamos para compartir momentos únicos en nuestro club!</b
         Request::sendMessage($data);
         // Do nothing
         return Request::emptyResponse();
+/*
+        norden - Estado actual del Pilote Norden
+        foto   - Snapshot de la WebCam al río
+        start  - Mostrar el QR para compartir
+*/
+
     }
 }

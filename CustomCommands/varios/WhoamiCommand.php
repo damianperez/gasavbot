@@ -35,7 +35,7 @@ class WhoamiCommand extends UserCommand
     /**
      * @var string
      */
-    protected $description = 'Show your id, name and username';
+    protected $description = 'Muestra mis datos';
 
     /**
      * @var string

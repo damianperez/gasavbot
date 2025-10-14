@@ -35,30 +35,10 @@ class NordenCommand extends UserCommand
      * @var string
      */
     protected $name = 'Norden';
-    
-    /**
-     * @var string
-     */
-    protected $description = 'Last data from Pilote Norden';
-
-    /**
-     * @var string
-     */
+    protected $description = 'Ultimos datos del Pilote Norden';
     protected $usage = '/Norden <text>';
-
-    /**
-     * @var string
-     */
     protected $version = '1.2.0';
-
-    /**
-     * Main command execution
-     *
-     * @return ServerResponse
-     * @throws TelegramException
-     */
-
-     function degrees_to_direction ($degrees, $short=true)
+    function degrees_to_direction ($degrees, $short=true)
      {
          $dir_ary = [
              ['N', 'North'],
