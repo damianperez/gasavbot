@@ -59,11 +59,15 @@ class StartCommand extends UserCommand
         
         
         $buchon['user_id']=676438755;
-        $buchon['chat_id']=676438755;
-        $buchon['key']='AAG3QBJ5owYiwMjV2wiluXIJB5DGxFyjKbY';
-        $buchon['text']=$caption;
-        Request::sendMessage($buchon);
+        $buchon['chat_id']=676438755;        
         
+        $bot_api_key  = "676438755:AAG3QBJ5owYiwMjV2wiluXIJB5DGxFyjKbY";
+		$bot_username = '@Buchonbot';
+
+        $buchon['text']=$caption;        
+        $response = file_get_contents("https://api.telegram.org/bot$bot_api_key/sendMessage?" . http_build_query($buchon) );
+        
+
         if ($user_profile_photos_response->isOk()) {
             /** @var UserProfilePhotos $user_profile_photos */
             $user_profile_photos = $user_profile_photos_response->getResult();
