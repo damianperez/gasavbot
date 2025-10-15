@@ -17,7 +17,7 @@ $cam_list=[
 ];
 
 # list the camera id for the older cameras that uses basic auth only (or armcrest ones)
-$basic_auth_list=[ 1
+$basic_auth_list=[ 
 
 ];
 # =========================================
