@@ -1,6 +1,6 @@
 <?php
 # uncomment to get error output
-// error_reporting(E_ALL); ini_set( 'display_errors','1');
+error_reporting(E_ALL); ini_set( 'display_errors','1');
 $ip_address = '200.114.85.10'; // Replace with your camera's IP
 $port = '80'; // Replace with your camera's HTTP port if different
 $channel = '0'; // Adjust if needed for specific channel
