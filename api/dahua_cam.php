@@ -10,13 +10,14 @@ $password = 'PlayaGasav'; // Replace with your camera password
 $user=$username;  # username
 $pass=$password; # password
 
+// https://bots.perezcompany.com.ar/gasavbot/api/dahua_cam.php?c=1&a=GetGeneralConfig
 # number the cameras and specify ip address
 $cam_list=[
   1 => $ip_address, 
 ];
 
 # list the camera id for the older cameras that uses basic auth only (or armcrest ones)
-$basic_auth_list=[
+$basic_auth_list=[ 1
 
 ];
 # =========================================
