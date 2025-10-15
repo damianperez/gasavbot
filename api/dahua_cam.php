@@ -11,6 +11,9 @@ $user=$username;  # username
 $pass=$password; # password
 
 // https://bots.perezcompany.com.ar/gasavbot/api/dahua_cam.php?c=1&a=GetGeneralConfig
+
+//https://bots.perezcompany.com.ar/gasavbot/api/dahua_cam.php?c=1&a=GetSystemInfo
+
 # number the cameras and specify ip address
 $cam_list=[
   1 => $ip_address, 

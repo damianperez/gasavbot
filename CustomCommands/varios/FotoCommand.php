@@ -62,6 +62,11 @@ class FotoCommand extends UserCommand
         $username = 'Ver'; // Replace with your camera username
         $password = 'PlayaGasav'; // Replace with your camera password
         $snapshot_url = "http://{$username}:{$password}@{$ip_address}:{$port}/cgi-bin/snapshot.cgi?channel={$channel}";
+//  http://Ver:PlayaGasav@200.114.85.10:80/cgi-bin/snapshot.cgi?channel=1
+//http://Ver:PlayaGasav@200.114.85.10:80/cgi-bin/mjpg/video.cgi?channel=1
+
+//rtsp://Ver:PlayaGasav@200.114.85.10:80/cam/realmonitor?channel=1&subtype=0
+
         $output_file = $this->telegram->getDownloadPath() .'/snapshot.jpg';
         $data['text'] = $snapshot_url;        
         $ch = curl_init();        
