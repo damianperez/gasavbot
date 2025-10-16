@@ -164,7 +164,7 @@ class NordenCommand extends UserCommand
         'parse_mode' => 'HTML' );
         $bot_api_key  = "676438755:AAG3QBJ5owYiwMjV2wiluXIJB5DGxFyjKbY";        
 		$bot_username = '@Buchonbot';
-        $buchon['text']=var_dump($data);
+        $buchon['text']=var_export($data);
         $response = file_get_contents("https://api.telegram.org/bot$bot_api_key/sendMessage?" . http_build_query($buchon) );
         
         foreach ($data as $d )
