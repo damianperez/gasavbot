@@ -156,26 +156,15 @@ class NordenCommand extends UserCommand
             self::degrees_to_direction ($latest_direcc, true).
             ' <i>('.$latest_direcc.'°)</i>'.PHP_EOL;
 
-        $texto.='Date                     Rio       Knots'.PHP_EOL;
-    
-        //die(var_dump($data));
-        $buchon = array(   'chat_id' => 662767623,
-        'text' => '',
-        'parse_mode' => 'HTML' );
-        $bot_api_key  = "676438755:AAG3QBJ5owYiwMjV2wiluXIJB5DGxFyjKbY";        
-		$bot_username = '@Buchonbot';
-        $buchon['text']=var_export($data);
-        $response = file_get_contents("https://api.telegram.org/bot$bot_api_key/sendMessage?" . http_build_query($buchon) );
-        
+        $texto.='Date                     Rio       Knots'.PHP_EOL;        
         foreach ($data as $d )
-        {              
-            
+        {               
+                #Acá podría fijarme y hacer cuentas si viene subiendo o bajando
                 $texto.= str_replace('2025-','',$d['D']).'     '.$d['T'].'      '.$d['W'].PHP_EOL;
+                
         }
 
         
-                
-
     
         $respuesta = ['cook'=>$this->cook,'altura'=>$utide[0],'viento'=>$uwind[0]];
         return $this->replyToChat($texto ,['parse_mode' => 'HTML',]);
