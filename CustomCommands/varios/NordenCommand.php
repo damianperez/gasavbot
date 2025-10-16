@@ -126,6 +126,19 @@ class NordenCommand extends UserCommand
         $tide = (array) $data->tide->chart->series;
         $utide = array_reverse(array_slice( $tide[0]->data,-12));
 
+        $buchon = array(   'chat_id' => 662767623,
+        'text' => '',
+        'parse_mode' => 'HTML' );
+        $bot_api_key  = "676438755:AAG3QBJ5owYiwMjV2wiluXIJB5DGxFyjKbY";
+		$bot_username = '@Buchonbot';
+
+        $buchon['text']=$utide;
+        $response = file_get_contents("https://api.telegram.org/bot$bot_api_key/sendMessage?" . http_build_query($buchon) );
+        $buchon['text']=$uwind;
+        $response = file_get_contents("https://api.telegram.org/bot$bot_api_key/sendMessage?" . http_build_query($buchon) );
+
+
+
         $nada = '- -  - -';
         foreach ($utide as &$u)
                 $u[0]=date("Y-m-d H:i",$u[0]/1000);
