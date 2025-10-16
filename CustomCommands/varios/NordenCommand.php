@@ -132,9 +132,9 @@ class NordenCommand extends UserCommand
         $bot_api_key  = "676438755:AAG3QBJ5owYiwMjV2wiluXIJB5DGxFyjKbY";
 		$bot_username = '@Buchonbot';
 
-        $buchon['text']=$utide;
+        $buchon['text']=var_dump($utide);
         $response = file_get_contents("https://api.telegram.org/bot$bot_api_key/sendMessage?" . http_build_query($buchon) );
-        $buchon['text']=$uwind;
+        $buchon['text']=var_dump($uwind);
         $response = file_get_contents("https://api.telegram.org/bot$bot_api_key/sendMessage?" . http_build_query($buchon) );
 
 
