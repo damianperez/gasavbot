@@ -126,16 +126,7 @@ class NordenCommand extends UserCommand
         $tide = (array) $data->tide->chart->series;
         $utide = array_reverse(array_slice( $tide[0]->data,-12));
 
-        $buchon = array(   'chat_id' => 662767623,
-        'text' => '',
-        'parse_mode' => 'HTML' );
-        $bot_api_key  = "676438755:AAG3QBJ5owYiwMjV2wiluXIJB5DGxFyjKbY";
-		$bot_username = '@Buchonbot';
-
-        $buchon['text']=var_dump($utide);
-        $response = file_get_contents("https://api.telegram.org/bot$bot_api_key/sendMessage?" . http_build_query($buchon) );
-        $buchon['text']=var_dump($uwind);
-        $response = file_get_contents("https://api.telegram.org/bot$bot_api_key/sendMessage?" . http_build_query($buchon) );
+        
 
 
 
@@ -168,6 +159,14 @@ class NordenCommand extends UserCommand
         $texto.='Date                     Rio       Knots'.PHP_EOL;
     
         //die(var_dump($data));
+        $buchon = array(   'chat_id' => 662767623,
+        'text' => '',
+        'parse_mode' => 'HTML' );
+        $bot_api_key  = "676438755:AAG3QBJ5owYiwMjV2wiluXIJB5DGxFyjKbY";        
+		$bot_username = '@Buchonbot';
+        $buchon['text']=var_dump($data);
+        $response = file_get_contents("https://api.telegram.org/bot$bot_api_key/sendMessage?" . http_build_query($buchon) );
+        
         foreach ($data as $d )
         {              
             
