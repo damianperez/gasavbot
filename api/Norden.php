@@ -113,8 +113,8 @@ $opciones =[];
 
     // Get an indexed array of keys
     $keys = array_keys($data);
-    $alto = -3;
-    $bajo = 3;
+    $alto = 0;
+    $bajo = 0 ;
      echo '<pre>';
     for ($i = 0; $i < count($keys); $i++) {
         $key = $keys[$i];
