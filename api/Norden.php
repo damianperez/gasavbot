@@ -9,9 +9,6 @@ use Longman\TelegramBot\Commands\UserCommand;
 use Longman\TelegramBot\Entities\ServerResponse;
 use Longman\TelegramBot\Exception\TelegramException;
 
-$a = new \Norden();
-
-
 class Norden extends UserCommand
 {
     /**
@@ -175,4 +172,4 @@ class Norden extends UserCommand
         return $this->replyToChat($texto ,['parse_mode' => 'HTML',]);
     }
 }
-
+$a = new \Norden();
