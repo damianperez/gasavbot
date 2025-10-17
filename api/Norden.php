@@ -117,7 +117,7 @@ $opciones =[];
     $bajo = 3;
     for ($i = 0; $i < count($keys); $i++) {
         $key = $keys[$i];
-        $value = strval($data[$key]['T']);
+        $value = (float) $data[$key]['T'];
         if ( is_numeric($value))
         {
             if ($value > $alto) $alto=$i;
