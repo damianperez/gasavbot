@@ -121,7 +121,7 @@ $opciones =[];
         $value = (float) $data[$key]['T'];        
         if ($value > $alto) $alto=$i;
         if ($value < $bajo) $bajo=$i;        
-        echo "Index: $i, Key: $key, Value: $value\n";
+        echo "Index: $i  $alto  $bajo, Key: $key, Value: $value\n ";
     }
     $primer_valor = $data[array_key_first($data)]['T'];
     $ultimo_valor = $data[array_key_last($data)]['T'];
