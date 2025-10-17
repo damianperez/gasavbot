@@ -156,7 +156,9 @@ class NordenCommand extends UserCommand
             self::degrees_to_direction ($latest_direcc, true).
             ' <i>('.$latest_direcc.'°)</i>'.PHP_EOL;
 
-        $texto.='Date                     Rio       Knots'.PHP_EOL;        
+        $texto.='<b>Ultima hora</b>'.PHP_EOL.
+                'Date                     Rio       Knots'.PHP_EOL;
+        //$texto.='Date                     Rio       Knots'.PHP_EOL;        
         foreach ($data as $d )
         {               
                 #Acá podría fijarme y hacer cuentas si viene subiendo o bajando
