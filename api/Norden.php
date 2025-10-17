@@ -113,8 +113,8 @@ $opciones =[];
     var_dump($respuesta);
     echo '</pre>';
 
-    $primer_valor = $data[0]['T'];
-    $ultimo_valor = $data[count($data)-1]['T'];
+    $primer_valor = $data[array_key_first($data)]['T'];
+    $ultimo_valor = $data[array_key_last($data)]['T'];
 
     echo "De $primer_valor a $ultimo_valor ";
 
