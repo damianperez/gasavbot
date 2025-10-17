@@ -113,22 +113,24 @@ $opciones =[];
 
     // Get an indexed array of keys
     $keys = array_keys($data);
-    $alto = 0;
-    $bajo = 0 ;
+    $ialto = 0;
+    $ibajo = 0 ;
+    $alto = -3;
+    $bajo = 3 ;
      echo '<pre>';
     for ($i = 0; $i < count($keys); $i++) {
         $key = $keys[$i];
         $value = (float) $data[$key]['T'];        
-        if ($value > $alto) $alto=$i;
-        if ($value < $bajo) $bajo=$i;        
-        echo "Index: $i  $alto  $bajo, Key: $key, Value: $value\n ";
+        if ($value > $alto) $ialto=$i;
+        if ($value < $bajo) $ibajo=$i;        
+        echo "Key: $key, Index: $i  Value: $value $alto $bajo ";
     }
     $primer_valor = $data[array_key_first($data)]['T'];
     $ultimo_valor = $data[array_key_last($data)]['T'];
    
     echo "De $ultimo_valor a $primer_valor    $bajo  - $alto".PHP_EOL;
-    echo 'Mas bajo '.$data[$keys[$bajo]]['T'].' a las '.$data[$keys[$bajo]]['D']. PHP_EOL;
-    echo 'Mas alto '.$data[$keys[$alto]]['T'].' a las '.$data[$keys[$alto]]['D']. PHP_EOL;
+    echo 'Mas bajo '.$data[$keys[$ibajo]]['T'].' a las '.$data[$keys[$ibajo]]['D']. PHP_EOL;
+    echo 'Mas alto '.$data[$keys[$ialto]]['T'].' a las '.$data[$keys[$ialto]]['D']. PHP_EOL;
     echo '</pre>';
 
 
