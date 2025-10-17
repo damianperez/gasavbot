@@ -68,9 +68,9 @@ $opciones =[];
 
 
     $wind = (array) $data->wind->chart->gust->series{1}->data;
-    $uwind = array_reverse(array_slice( $wind,-12));
+    $uwind = array_reverse(array_slice( $wind,-15));
     $tide = (array) $data->tide->chart->series;
-    $utide = array_reverse(array_slice( $tide[0]->data,-12));
+    $utide = array_reverse(array_slice( $tide[0]->data,-15));
 
     $nada = '- -  - -';
     foreach ($utide as &$u)
@@ -118,9 +118,9 @@ $opciones =[];
     $keys = array_keys($data);
 
     for ($i = 0; $i < count($keys); $i++) {
-    $key = $keys[$i];
-    $value = $data[$key]['T'];
-    echo "Index: $i, Key: $key, Value: $value\n";
+        $key = $keys[$i];
+        $value = $data[$key]['T'];
+        echo "Index: $i, Key: $key, Value: $value\n";
     }
     $primer_valor = $data[array_key_first($data)]['T'];
     $ultimo_valor = $data[array_key_last($data)]['T'];
