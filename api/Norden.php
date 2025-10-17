@@ -121,7 +121,7 @@ $opciones =[];
         if ( is_numeric($value))
         {
             if ($value > $alto) $alto=$i;
-            if ($value < $bajo) $alto=$i;
+            if ($value < $bajo) $bajo=$i;
         }
         echo "Index: $i, Key: $key, Value: $value\n";
     }
@@ -129,8 +129,8 @@ $opciones =[];
     $ultimo_valor = $data[array_key_last($data)]['T'];
 
     echo "De $ultimo_valor a $primer_valor ".PHP_EOL;
-    echo 'Mas bajo '.$data[$keys[$bajo]]['T'].PHP_EOL;
-    echo 'Mas alto '.$data[$keys[$alto]]['T'].PHP_EOL;
+    echo 'Mas bajo '.$data[$keys[$bajo]]['T'].' a las '.$data[$keys[$bajo]]['T']. PHP_EOL;
+    echo 'Mas alto '.$data[$keys[$alto]]['T'].' a las '.$data[$keys[$alto]]['T']. PHP_EOL;
 
 
 
