@@ -100,7 +100,7 @@ $opciones =[];
 
     $texto.='Date                     Rio       Knots'.PHP_EOL;
 
-    echo '</pre>';
+    echo '<pre>';
     var_dump($data);
     echo '</pre>';
     foreach ($data as $d )
