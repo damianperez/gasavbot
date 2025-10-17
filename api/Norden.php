@@ -23,38 +23,6 @@ $parametros = ['p'=> 1,
 $opciones =[];
     
 
-function degrees_to_direction ($degrees, $short=true)
-    {
-        $dir_ary = [
-            ['N', 'North'],
-            ['NNE', 'North Northeast'],
-            ['NE', 'Northeast'],
-            ['ENE', 'East Northeast'],
-            ['E', 'East'],
-            ['ESE', 'East Southeast'],
-            ['SE', 'Southeast'],
-            ['SSE', 'South Southeast'],
-            ['S', 'South'],
-            ['SSW', 'South Southwest'],
-            ['SW', 'Southwest'],
-            ['WSW', 'West Southwest'],
-            ['W', 'West'],
-            ['WNW', 'West Northwest'],
-            ['NW', 'Northwest'],
-            ['NNW', 'North Northwest'],
-        ];
-    
-        $idx = round ($degrees / 22.5) % 16;
-    
-        if ($short)
-        {
-            return $dir_ary[$idx][0];
-        }
-    
-        return $dir_ary[$idx][1];
-    }
-function execute(): ServerResponse
-{
  
     $headers = [
         'Accept' =>  '*/*',
@@ -147,6 +115,34 @@ function execute(): ServerResponse
 
     $respuesta = ['cook'=>$cook,'altura'=>$utide[0],'viento'=>$uwind[0]];
     return $replyToChat($texto ,['parse_mode' => 'HTML',]);
-}
 
-execute();
+    function degrees_to_direction ($degrees, $short=true)
+    {
+        $dir_ary = [
+            ['N', 'North'],
+            ['NNE', 'North Northeast'],
+            ['NE', 'Northeast'],
+            ['ENE', 'East Northeast'],
+            ['E', 'East'],
+            ['ESE', 'East Southeast'],
+            ['SE', 'Southeast'],
+            ['SSE', 'South Southeast'],
+            ['S', 'South'],
+            ['SSW', 'South Southwest'],
+            ['SW', 'Southwest'],
+            ['WSW', 'West Southwest'],
+            ['W', 'West'],
+            ['WNW', 'West Northwest'],
+            ['NW', 'Northwest'],
+            ['NNW', 'North Northwest'],
+        ];
+    
+        $idx = round ($degrees / 22.5) % 16;
+    
+        if ($short)
+        {
+            return $dir_ary[$idx][0];
+        }
+    
+        return $dir_ary[$idx][1];
+    }
