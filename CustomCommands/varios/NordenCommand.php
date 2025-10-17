@@ -152,9 +152,9 @@ class NordenCommand extends UserCommand
             if (!isset($data[$u[0]]['T'] )) $data[$u[0]]['T']=$nada;
         }
         $texto = "Ultima medicion ".PHP_EOL. $latest_fecha.' '.PHP_EOL.
-            '<b>'. $latest_viento.' knts </b>'.      
+            '<b>'. $latest_viento.' knts '.      
             self::degrees_to_direction ($latest_direcc, true).
-            ' <i>('.$latest_direcc.'°)</i>'.PHP_EOL;
+            '</b> <i>('.$latest_direcc.'°)</i>'.PHP_EOL;
 
         $texto.='<b>Ultima hora</b>'.PHP_EOL.
                 'Date                     Rio       Knots'.PHP_EOL;
