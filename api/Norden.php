@@ -108,13 +108,7 @@ $opciones =[];
         
             $texto.= str_replace('2025-','',$d['D']).'     '.$d['T'].'      '.$d['W'].PHP_EOL;
     }
-
-    
-            
-
-
-    $respuesta = ['cook'=>$cook,'altura'=>$utide[0],'viento'=>$uwind[0]];
-    
+    $respuesta = ['cook'=>$cook,'altura'=>$utide[0],'viento'=>$uwind[0]];   
     echo '<pre>';
     var_dump($respuesta);
     echo '</pre>';
