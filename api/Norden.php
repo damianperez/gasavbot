@@ -121,8 +121,8 @@ $opciones =[];
     for ($i = 0; $i < count($keys); $i++) {
         $key = $keys[$i];
         $value = (float) $data[$key]['T'];        
-        if ($value > $alto) $ialto=$i;
-        if ($value < $bajo) $ibajo=$i;        
+        if ($value > $alto) { $ialto=$i; $alto = $value; }
+        if ($value < $bajo) $ibajo=$i; $bajo = $value; }
         echo "Key: $key, Index: $i  Value: $value $alto $bajo \n";
     }
     $primer_valor = $data[array_key_first($data)]['T'];
