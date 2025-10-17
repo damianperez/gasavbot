@@ -113,6 +113,13 @@ $opciones =[];
     var_dump($respuesta);
     echo '</pre>';
 
+    $primer_valor = $data[0]['T'];
+    $ultimo_valor = $data[count($data)-1]['T'];
+
+    echo "De $primer_valor a $ultimo_valor ";
+
+
+
     function degrees_to_direction ($degrees, $short=true)
     {
         $dir_ary = [
