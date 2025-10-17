@@ -113,10 +113,19 @@ $opciones =[];
     var_dump($respuesta);
     echo '</pre>';
 
+
+    // Get an indexed array of keys
+    $keys = array_keys($data);
+
+    for ($i = 0; $i < count($keys); $i++) {
+    $key = $keys[$i];
+    $value = $data[$key]['T'];
+    echo "Index: $i, Key: $key, Value: $value\n";
+    }
     $primer_valor = $data[array_key_first($data)]['T'];
     $ultimo_valor = $data[array_key_last($data)]['T'];
 
-    echo "De $primer_valor a $ultimo_valor ";
+    echo "De $ultimo_valor a $primer_valor ";
 
 
 
