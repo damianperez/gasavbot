@@ -127,10 +127,11 @@ $opciones =[];
     }
     $primer_valor = $data[array_key_first($data)]['T'];
     $ultimo_valor = $data[array_key_last($data)]['T'];
-
+    echo '<pre>';
     echo "De $ultimo_valor a $primer_valor ".PHP_EOL;
-    echo 'Mas bajo '.$data[$keys[$bajo]]['T'].' a las '.$data[$keys[$bajo]]['T']. PHP_EOL;
-    echo 'Mas alto '.$data[$keys[$alto]]['T'].' a las '.$data[$keys[$alto]]['T']. PHP_EOL;
+    echo 'Mas bajo '.$data[$keys[$bajo]]['T'].' a las '.$data[$keys[$bajo]]['D']. PHP_EOL;
+    echo 'Mas alto '.$data[$keys[$alto]]['T'].' a las '.$data[$keys[$alto]]['D']. PHP_EOL;
+    echo '</pre>';
 
 
 
