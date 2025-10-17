@@ -55,18 +55,13 @@ function degrees_to_direction ($degrees, $short=true)
     }
 function execute(): ServerResponse
 {
-    $message = $this->getMessage();
-    $text    = $message->getText(true);
-
-    // if ($text === '') {
-    //    return $this->replyToChat('Command usage: ' . $this->getUsage());
-    // }
-    $this->headers = [
+ 
+    $headers = [
         'Accept' =>  '*/*',
         'Accept-Encoding' =>  'gzip, deflate, br, zstd',
         'Accept-Language' =>  'es-419,es;q=0.9,en;q=0.8,gl;q=0.7,pt;q=0.6',                   
         'Content-Type' => 'application/x-www-form-urlencoded; charset=UTF-8',   
-        'Cookie' => $this->cook,
+        'Cookie' => $cook,
         'Host' =>'meteo.comisionriodelaplata.org',
         'Sec-Ch-Ua' => '"Not A(Brand";v="8", "Chromium";v="132", "Google Chrome";v="132"',
         'Sec-Fetch-Site' =>  'none',
@@ -75,24 +70,24 @@ function execute(): ServerResponse
         'Origin' => 'http://meteo.comisionriodelaplata.org',
         'User-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36',
         ];
-    $this->opciones = ['form_params' => $this->parametros,        
-                        'headers'     => $this->headers,];
+    $opciones = ['form_params' => $parametros,        
+                        'headers'     => $headers,];
     //$client = new GuzzleHttp\Client();
-    $this->client = new Client();
-    //var_dump($this->opciones);
-    $response = $this->client->request('POST',$this->url_post,$this->opciones);
+    $client = new Client();
+    //var_dump($opciones);
+    $response = $client->request('POST',$url_post,$opciones);
 
     $cook=$response->getHeaderLine("Set-Cookie");    
     if (!empty($cook))
         {
-        $this->opciones['headers']['Cookie']=$cook;
+        $opciones['headers']['Cookie']=$cook;
         $client = new Client();
-        $response = $client->request('POST',$this->url_post,$this->opciones);
+        $response = $client->request('POST',$url_post,$opciones);
         }
     
     
-    $this->parajson =  str_replace('OKupdateStationTelemetry|JSON**', "", $response->getBody());
-    $data = json_decode($this->parajson,false); 
+    $parajson =  str_replace('OKupdateStationTelemetry|JSON**', "", $response->getBody());
+    $data = json_decode($parajson,false); 
     $latest = rawurldecode( $data->wind->latest);
 
     $dom = new \DOMDocument();
@@ -150,8 +145,8 @@ function execute(): ServerResponse
             
 
 
-    $respuesta = ['cook'=>$this->cook,'altura'=>$utide[0],'viento'=>$uwind[0]];
-    return $this->replyToChat($texto ,['parse_mode' => 'HTML',]);
+    $respuesta = ['cook'=>$cook,'altura'=>$utide[0],'viento'=>$uwind[0]];
+    return $replyToChat($texto ,['parse_mode' => 'HTML',]);
 }
 
 execute();
