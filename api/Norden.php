@@ -6,7 +6,8 @@ use Longman\TelegramBot\Commands\UserCommand;
 use Longman\TelegramBot\Entities\ServerResponse;
 use Longman\TelegramBot\Exception\TelegramException;
 
-Norden::execute();
+$a = new Norden();
+
 
 class Norden extends UserCommand
 {
