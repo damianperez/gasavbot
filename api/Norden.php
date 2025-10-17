@@ -100,7 +100,9 @@ $opciones =[];
 
     $texto.='Date                     Rio       Knots'.PHP_EOL;
 
-    die(var_dump($data));
+    echo '</pre>';
+    var_dump($data);
+    echo '</pre>';
     foreach ($data as $d )
     {              
         
@@ -113,8 +115,9 @@ $opciones =[];
 
     $respuesta = ['cook'=>$cook,'altura'=>$utide[0],'viento'=>$uwind[0]];
     
+    echo '<pre>';
     var_dump($respuesta);
-
+    echo '</pre>';
 
     function degrees_to_direction ($degrees, $short=true)
     {
