@@ -6,9 +6,9 @@ use Longman\TelegramBot\Commands\UserCommand;
 use Longman\TelegramBot\Entities\ServerResponse;
 use Longman\TelegramBot\Exception\TelegramException;
 
-NordenCommand::execute();
+Norden::execute();
 
-class NordenCommand extends UserCommand
+class Norden extends UserCommand
 {
     /**
      * Guzzle Client object
