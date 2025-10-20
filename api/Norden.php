@@ -102,10 +102,12 @@ $opciones =[];
     echo '<pre>';
         //var_dump($data);
     echo '</pre>';
+    $i=0;
     foreach ($data as $d )
     {              
-        
+            $i=$i+1;
             $texto.= str_replace('2025-','',$d['D']).'     '.$d['T'].'      '.$d['W'].PHP_EOL;
+            if ($i>12) break;
     }
     $respuesta = ['cook'=>$cook,'altura'=>$utide[0],'viento'=>$uwind[0]];   
    // echo '<pre>';    var_dump($respuesta);    echo '</pre>';
