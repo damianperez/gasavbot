@@ -143,29 +143,23 @@ $opciones =[];
     }
     $primer_valor = $data[array_key_first($data)]['T'];
     $ultimo_valor = $data[array_key_last($data)]['T'];
-   
-
-    // Define your two date/time strings
-$startDateTimeString = "2025-10-20 09:00:00";
-$endDateTimeString = "2025-10-20 11:33:45";
-
-// Create DateTime objects from the strings
-$startDateTime = new DateTime($latest_fecha);
-$endDateTime = new DateTime($data[$keys[$ialto]]['D']);
-
-// Calculate the difference using the diff() method
-$interval = $startDateTime->diff($endDateTime);
-
-// Format the interval to display hours, minutes, and seconds
-$difference = $interval->format('%h hours, %i minutes, %s seconds');
-
-echo "The time difference is: " . $difference . PHP_EOL;
-
+    $startDateTime = new DateTime($latest_fecha);
     
     if ( $bajando ) 
-       echo "Bajando desde las ".$data[$keys[$ialto]]['D']. PHP_EOL;
+        {
+        $endDateTime = new DateTime($data[$keys[$ialto]]['D']);    
+        $interval = $startDateTime->diff($endDateTime);
+        $difference = $interval->format('%h horas y %i minutos');        
+        echo "Bajando desde hace $difference". PHP_EOL;
+        }
     if ( $subiendo ) 
-       echo "Subiendo desde las ".$data[$keys[$ibajo]]['D']. PHP_EOL;
+        {
+       $endDateTime = new DateTime($data[$keys[$ibajo]]['D']);    
+       $interval = $startDateTime->diff($endDateTime);
+       $difference = $interval->format('%h horas y %i minutos');        
+       echo "Subiendo desde hace $difference". PHP_EOL;
+       
+        }
 
     echo "De $ultimo_valor a $primer_valor    $bajo  - $alto".PHP_EOL;
     echo 'Mas bajo '.$data[$keys[$ibajo]]['T'].' a las '.$data[$keys[$ibajo]]['D']. PHP_EOL;
