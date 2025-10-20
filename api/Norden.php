@@ -101,7 +101,7 @@ $opciones =[];
     $texto.='<b>Ultima hora</b>'.PHP_EOL.'Date                     Rio       Knots'.PHP_EOL;
 
     echo '<pre>';
-   // var_dump($data);
+        var_dump($data);
     echo '</pre>';
     foreach ($data as $d )
     {              
