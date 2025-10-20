@@ -68,9 +68,9 @@ $opciones =[];
 
 
     $wind = (array) $data->wind->chart->gust->series{1}->data;
-    $uwind = array_reverse(array_slice( $wind,-15));
+    $uwind = array_reverse(array_slice( $wind,-50));
     $tide = (array) $data->tide->chart->series;
-    $utide = array_reverse(array_slice( $tide[0]->data,-15));
+    $utide = array_reverse(array_slice( $tide[0]->data,-50));
 
     $nada = '- -  - -';
     foreach ($utide as &$u)
@@ -149,7 +149,7 @@ $opciones =[];
        echo "Bajando desde las ".$data[$keys[$ialto]]['D']. PHP_EOL;
     if ( $subiendo ) 
        echo "Subiendo desde las ".$data[$keys[$ibajo]]['D']. PHP_EOL;
-    
+
     echo "De $ultimo_valor a $primer_valor    $bajo  - $alto".PHP_EOL;
     echo 'Mas bajo '.$data[$keys[$ibajo]]['T'].' a las '.$data[$keys[$ibajo]]['D']. PHP_EOL;
     echo 'Mas alto '.$data[$keys[$ialto]]['T'].' a las '.$data[$keys[$ialto]]['D']. PHP_EOL;
