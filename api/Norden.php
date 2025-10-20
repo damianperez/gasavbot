@@ -129,9 +129,9 @@ $opciones =[];
         $hora = $data[$key]['D'];
         if ( $i==0 )
         {
-            if ( $value <  $data[1]['T'] && $value <  $data[2]['T']  )
+            if ( $value <  (float) $data[1]['T'] && (float) $value <  $data[2]['T']  )
                 $bajando=true;
-            elseif ( $value >  $data[1]['T'] && $value >  $data[2]['T']  )
+            elseif ( $value > (float) $data[1]['T'] && $value > (float) $data[2]['T']  )
                 $subiendo=true;
             else
                 $estable = true;
