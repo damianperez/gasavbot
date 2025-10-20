@@ -129,7 +129,8 @@ $opciones =[];
         $hora = $data[$key]['D'];
         if ( $i==0 )
         {
-            if ( $value <  (float) $data[1]['T'] && (float) $value <  $data[2]['T']  )
+            echo '-- '.$data[0]['T'].' <> 1.'.$data[1]['T'].'  2.'.$data[2]['T']. PHP_EOL;
+            if ( $value <  (float) $data[1]['T'] &&  $value < (float) $data[2]['T']  )
                 $bajando=true;
             elseif ( $value > (float) $data[1]['T'] && $value > (float) $data[2]['T']  )
                 $subiendo=true;
@@ -144,7 +145,7 @@ $opciones =[];
     $primer_valor = $data[array_key_first($data)]['T'];
     $ultimo_valor = $data[array_key_last($data)]['T'];
    
-    echo "Subiendo $subiendo , bajando $bajando, estable $estable";
+    echo "Subiendo $subiendo , bajando $bajando, estable $estable".PHP_EOL;
     echo "De $ultimo_valor a $primer_valor    $bajo  - $alto".PHP_EOL;
     echo 'Mas bajo '.$data[$keys[$ibajo]]['T'].' a las '.$data[$keys[$ibajo]]['D']. PHP_EOL;
     echo 'Mas alto '.$data[$keys[$ialto]]['T'].' a las '.$data[$keys[$ialto]]['D']. PHP_EOL;
