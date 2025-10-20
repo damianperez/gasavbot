@@ -68,9 +68,9 @@ $opciones =[];
 
 
     $wind = (array) $data->wind->chart->gust->series{1}->data;
-    $uwind = array_reverse(array_slice( $wind,-150));
+    $uwind = array_reverse(array_slice( $wind,-60));
     $tide = (array) $data->tide->chart->series;
-    $utide = array_reverse(array_slice( $tide[0]->data,-150));
+    $utide = array_reverse(array_slice( $tide[0]->data,-60));
 
     $nada = '- -  - -';
     foreach ($utide as &$u)
