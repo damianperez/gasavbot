@@ -117,10 +117,26 @@ $opciones =[];
     $ibajo = 0 ;
     $alto = -3;
     $bajo = 3 ;
+    $bajodesde=0;
+    $bajohasta=0;
+    $subiendo=false;
+    $bajando=false;
+    $estable=false;
     echo '<pre>';
     for ($i = 0; $i < count($keys); $i++) {
         $key = $keys[$i];
-        $value = (float) $data[$key]['T'];        
+        $value = (float) $data[$key]['T'];       
+        $hora = $data[$key]['D'];
+        if ( $i==0 )
+        {
+            if ( $value <  $data[1]['T'] && $value <  $data[2]['T']  )
+                $bajando=true;
+            elseif ( $value >  $data[1]['T'] && $value >  $data[2]['T']  )
+                $subiendo=true;
+            else
+                $estable = true;
+        }
+
         if ($value > $alto) { $ialto=$i; $alto = $value; }
         if ($value < $bajo) { $ibajo=$i; $bajo = $value; }
         echo "Key: $key, Index: $i  Value: $value $alto $bajo \n";
@@ -128,6 +144,7 @@ $opciones =[];
     $primer_valor = $data[array_key_first($data)]['T'];
     $ultimo_valor = $data[array_key_last($data)]['T'];
    
+    echo "Subiendo $subiendo , bajando $bajando, estable $estable";
     echo "De $ultimo_valor a $primer_valor    $bajo  - $alto".PHP_EOL;
     echo 'Mas bajo '.$data[$keys[$ibajo]]['T'].' a las '.$data[$keys[$ibajo]]['D']. PHP_EOL;
     echo 'Mas alto '.$data[$keys[$ialto]]['T'].' a las '.$data[$keys[$ialto]]['D']. PHP_EOL;
