@@ -144,8 +144,24 @@ $opciones =[];
     $primer_valor = $data[array_key_first($data)]['T'];
     $ultimo_valor = $data[array_key_last($data)]['T'];
    
-    $dif = date('hh:mm', strtotime($latest_fecha) - strtotime($data[$keys[$ialto]]['D']) );
-    echo "Fif $dif".PHP_EOL;
+
+    // Define your two date/time strings
+$startDateTimeString = "2025-10-20 09:00:00";
+$endDateTimeString = "2025-10-20 11:33:45";
+
+// Create DateTime objects from the strings
+$startDateTime = new DateTime($latest_fecha);
+$endDateTime = new DateTime($data[$keys[$ialto]]['D']);
+
+// Calculate the difference using the diff() method
+$interval = $startDateTime->diff($endDateTime);
+
+// Format the interval to display hours, minutes, and seconds
+$difference = $interval->format('%h hours, %i minutes, %s seconds');
+
+echo "The time difference is: " . $difference . PHP_EOL;
+
+    
     if ( $bajando ) 
        echo "Bajando desde las ".$data[$keys[$ialto]]['D']. PHP_EOL;
     if ( $subiendo ) 
