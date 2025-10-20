@@ -144,6 +144,8 @@ $opciones =[];
     $primer_valor = $data[array_key_first($data)]['T'];
     $ultimo_valor = $data[array_key_last($data)]['T'];
    
+    $dif = date('hh:mm', strtotime($latest_fecha) - strtotime($data[$keys[$ialto]]['D']) );
+    echo "Fif $dif".PHP_EOL;
     if ( $bajando ) 
        echo "Bajando desde las ".$data[$keys[$ialto]]['D']. PHP_EOL;
     if ( $subiendo ) 
