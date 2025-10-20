@@ -129,7 +129,7 @@ $opciones =[];
         $hora = $data[$key]['D'];
         if ( $i==0 )
         {
-            echo '-- '.$data[0]['T'].' <> 1.'.$data[1]['T'].'  2.'.$data[2]['T']. PHP_EOL;
+            echo '-- '.$data[$keys[0]]['T'].' <> 1.'.$data[$keys[1]]['T'].'  2.'.$data[$keys[2]]['T']. PHP_EOL;
             if ( $value <  (float) $data[1]['T'] &&  $value < (float) $data[2]['T']  )
                 $bajando=true;
             elseif ( $value > (float) $data[1]['T'] && $value > (float) $data[2]['T']  )
