@@ -101,7 +101,7 @@ $opciones =[];
     $texto.='<b>Ultima hora</b>'.PHP_EOL.'Date                     Rio       Knots'.PHP_EOL;
 
     echo '<pre>';
-        var_dump($data);
+        //var_dump($data);
     echo '</pre>';
     foreach ($data as $d )
     {              
@@ -130,9 +130,9 @@ $opciones =[];
         if ( $i==0 )
         {
             echo '-- '.$data[$keys[0]]['T'].' <> 1.'.$data[$keys[1]]['T'].'  2.'.$data[$keys[2]]['T']. PHP_EOL;
-            if ( $value <  (float) $data[1]['T'] &&  $value < (float) $data[2]['T']  )
+            if ( $value <  (float) $data[$keys[1]]['T'] &&  $value < (float) $data[$keys[2]]['T']  )
                 $bajando=true;
-            elseif ( $value > (float) $data[1]['T'] && $value > (float) $data[2]['T']  )
+            elseif ( $value > (float) $data[$keys[1]]['T'] && $value > (float) $data[$keys[2]]['T']  )
                 $subiendo=true;
             else
                 $estable = true;
