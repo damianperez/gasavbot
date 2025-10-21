@@ -136,10 +136,6 @@ $opciones =[];
         $key = $keys[$i];
         $value = (float) $data[$key]['T'];       
         $hora = $data[$key]['D'];
-
-        if ($subiendo && $tide_ahora)
-        
-
         if ($value > $alto) { 
             $ialto=$i; $alto = $value; }
         else
