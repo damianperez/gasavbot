@@ -182,7 +182,7 @@ $opciones =[];
     function bajando($datos,$indice)
     {
         
-        return $datos[$key[$indice]] < $datos[$key[$indice+1]] && $datos[$key[$indice]] < $datos[$key[$indice]+2];
+        return $datos[$key[$indice]]['T'] < $datos[$key[$indice+1]]['T'] && $datos[$key[$indice]]['T'] < $datos[$key[$indice]+2]['T'];
     }
     function degrees_to_direction ($degrees, $short=true)
     {
