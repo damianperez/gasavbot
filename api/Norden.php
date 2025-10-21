@@ -162,11 +162,10 @@ $opciones =[];
         }
     if ( $subiendo ) 
         {
-       $endDateTime = new DateTime($data[$keys[$ibajo]]['D']);    
-       $interval = $startDateTime->diff($endDateTime);
-       $difference = $interval->format('%h horas y %i minutos');        
-       echo "Subiendo desde hace $difference ".$data[$keys[$ibajo]]['D']. PHP_EOL;
-       
+        $endDateTime = new DateTime($data[$keys[$ibajo]]['D']);    
+        $interval = $startDateTime->diff($endDateTime);
+        $difference = $interval->format('%h horas y %i minutos');        
+        echo "Subiendo desde hace $difference ".$data[$keys[$ibajo]]['D']. PHP_EOL;       
         }
 
     echo "De $ultimo_valor a $primer_valor    $bajo  - $alto".PHP_EOL;
