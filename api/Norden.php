@@ -177,7 +177,7 @@ $opciones =[];
     echo '</pre>';
 
 
-    function bajando($datos,$indice)
+    function bajando($data,$indice)
     {
         global $keys;
         $value = (float) $data[$keys[$indice]]['T'];
