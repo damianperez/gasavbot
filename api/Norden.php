@@ -182,7 +182,10 @@ $opciones =[];
     function bajando($datos,$indice)
     {
         $value = (float) $data[$keys[$indice]]['T'];
-        return $value > (float) $data[$keys[$indice+1]]['T'] && $value > (float) $data[$keys[$indice+2]]['T']  ;
+        $v2 = (float) $data[$keys[$indice+1]]['T'];
+        $v3 = (float) $data[$keys[$indice+1]]['T'];
+        echo "$value > $v2 > && $value > $v3 ".PHP_EOL;
+        return $value > $v2  && $value > $v3 ;
         
         
     }
