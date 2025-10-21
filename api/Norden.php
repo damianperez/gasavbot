@@ -183,8 +183,8 @@ $opciones =[];
         $value = (float) $data[$keys[$indice]]['T'];
         $v2 = (float) $data[$keys[$indice+1]]['T'];
         $v3 = (float) $data[$keys[$indice+1]]['T'];
-        echo "$value > $v2 > && $value > $v3 ".PHP_EOL;
-        return $value > $v2  && $value > $v3 ;
+        //echo "$value > $v2 > && $value > $v3 ".PHP_EOL;
+        return $value < $v2  && $value < $v3 ;
         
         
     }
