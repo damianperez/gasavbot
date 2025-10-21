@@ -8,6 +8,9 @@ use GuzzleHttp\Exception\RequestException;
 use Longman\TelegramBot\Entities\ServerResponse;
 use Longman\TelegramBot\Exception\TelegramException;
 
+
+global $keys;
+
 $cook = "mariweb_session=1c15115edecae9adeb17ce8b689fcda0; mw_lang=EN";
 $url_post = 'http://meteo.comisionriodelaplata.org/ecsCommand.php?c=telemetry/updateTelemetry&s=0.8081622188540726';
 $headers = [ ];
@@ -125,7 +128,8 @@ $opciones =[];
     $estable=false;
     echo '<pre>';
     $tide_ahora= (float) $data[$keys[0]]['T'];
-    if ( $tide_ahora <  (float) $data[$keys[1]]['T'] &&  $value < (float) $data[$keys[2]]['T']  )
+    if ( $bajando( $tide_ahora,$i ))
+    //if ( $tide_ahora <  (float) $data[$keys[1]]['T'] &&  $value < (float) $data[$keys[2]]['T']  )
                 $bajando=true;
             elseif ( $value > (float) $data[$keys[1]]['T'] && $value > (float) $data[$keys[2]]['T']  )
                 $subiendo=true;
@@ -143,7 +147,7 @@ $opciones =[];
             {
                 if ($bajando) break;
             }
-        if ($value < $bajo && bajando($data, $keys[$i])) 
+        if ($value < $bajo && bajando($data, $i)) 
             { $ibajo=$i; $bajo = $value; }
         else
             { if ($subiendo) break ;}
@@ -177,7 +181,8 @@ $opciones =[];
 
     function bajando($datos,$indice)
     {
-        return $datos[$indice] < $datos[$indice+1] && $datos[$indice] < $datos[$indice+2];
+        
+        return $datos[$key[$indice]] < $datos[$key[$indice+1]] && $datos[$key[$indice]] < $datos[$key[$indice]+2];
     }
     function degrees_to_direction ($degrees, $short=true)
     {
