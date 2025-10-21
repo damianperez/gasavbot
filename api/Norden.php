@@ -134,7 +134,8 @@ $opciones =[];
 
     for ($i = 0; $i < count($keys); $i++) {
         $key = $keys[$i];
-        $value = (float) $data[$key]['T'];       
+        $value = (float) $data[$key]['T']; 
+        if ( ! is_numeric($value))  continue;
         $hora = $data[$key]['D'];
         if ($value > $alto) { 
             $ialto=$i; $alto = $value; }
