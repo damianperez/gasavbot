@@ -142,7 +142,7 @@ $opciones =[];
             {
                 if ($bajando) break;
             }
-        if ($value < $bajo) 
+        if ($value < $bajo && bajando($data, $keys[$i])) 
             { $ibajo=$i; $bajo = $value; }
         else
             { if ($subiendo) break ;}
@@ -175,7 +175,10 @@ $opciones =[];
     echo '</pre>';
 
 
-
+    function bajando($datos,$indice)
+    {
+        return $datos[$indice] < $datos[$indice+1];
+    }
     function degrees_to_direction ($degrees, $short=true)
     {
         $dir_ary = [
