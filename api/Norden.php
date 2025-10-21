@@ -181,6 +181,7 @@ $opciones =[];
 
     function bajando($datos,$indice)
     {
+        global $keys;
         $value = (float) $data[$keys[$indice]]['T'];
         $v2 = (float) $data[$keys[$indice+1]]['T'];
         $v3 = (float) $data[$keys[$indice+1]]['T'];
