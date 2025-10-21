@@ -128,7 +128,7 @@ $opciones =[];
     $estable=false;
     echo '<pre>';
     $tide_ahora= (float) $data[$keys[0]]['T'];
-    if ( $bajando( $tide_ahora,$i ))
+    if ( bajando( $tide_ahora,$i ))
     //if ( $tide_ahora <  (float) $data[$keys[1]]['T'] &&  $value < (float) $data[$keys[2]]['T']  )
                 $bajando=true;
             elseif ( $value > (float) $data[$keys[1]]['T'] && $value > (float) $data[$keys[2]]['T']  )
