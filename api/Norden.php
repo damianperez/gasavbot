@@ -123,23 +123,33 @@ $opciones =[];
     $bajando=false;
     $estable=false;
     echo '<pre>';
-    for ($i = 0; $i < count($keys); $i++) {
-        $key = $keys[$i];
-        $value = (float) $data[$key]['T'];       
-        $hora = $data[$key]['D'];
-        if ( $i==0 )
-        {
-            echo '-- '.$data[$keys[0]]['T'].' <> 1.'.$data[$keys[1]]['T'].'  2.'.$data[$keys[2]]['T']. PHP_EOL;
-            if ( $value <  (float) $data[$keys[1]]['T'] &&  $value < (float) $data[$keys[2]]['T']  )
+    $tide_ahora= (float) $data[$keys[0]]['T'];
+    if ( $tide_ahora <  (float) $data[$keys[1]]['T'] &&  $value < (float) $data[$keys[2]]['T']  )
                 $bajando=true;
             elseif ( $value > (float) $data[$keys[1]]['T'] && $value > (float) $data[$keys[2]]['T']  )
                 $subiendo=true;
             else
                 $estable = true;
-        }
 
-        if ($value > $alto) { $ialto=$i; $alto = $value; }
-        if ($value < $bajo) { $ibajo=$i; $bajo = $value; }
+    for ($i = 0; $i < count($keys); $i++) {
+        $key = $keys[$i];
+        $value = (float) $data[$key]['T'];       
+        $hora = $data[$key]['D'];
+
+        if ($subiendo && $tide_ahora)
+        
+
+        if ($value > $alto) { 
+            $ialto=$i; $alto = $value; }
+        else
+            {
+                if ($subiendo) exit;
+            }
+        if ($value < $bajo) 
+            { $ibajo=$i; $bajo = $value; }
+        else
+            { if ($bajando) exit ;}
+        
         echo "Key: $key, Index: $i  Value: $value $alto $bajo \n";
     }
     $primer_valor = $data[array_key_first($data)]['T'];
