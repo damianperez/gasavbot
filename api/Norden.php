@@ -135,7 +135,7 @@ $opciones =[];
                 $subiendo=true;
             else
                 $estable = true;
-
+    if ($bajando) echo '<hr>Bajando<hr>';
     for ($i = 0; $i < count($keys); $i++) {
         $key = $keys[$i];
         $value = (float) $data[$key]['T']; 
