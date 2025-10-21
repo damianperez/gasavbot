@@ -144,12 +144,12 @@ $opciones =[];
             $ialto=$i; $alto = $value; }
         else
             {
-                if ($subiendo) exit;
+                if ($subiendo) break;
             }
         if ($value < $bajo) 
             { $ibajo=$i; $bajo = $value; }
         else
-            { if ($bajando) exit ;}
+            { if ($bajando) break ;}
 
         echo "Key: $key, Index: $i  Value: $value $alto $bajo \n";
     }
