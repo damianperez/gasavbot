@@ -99,16 +99,17 @@ $opciones =[];
 
     $texto.='<b>Ultima hora</b>'.PHP_EOL.'Date                     Rio       Knots'.PHP_EOL;
     echo '<pre>';
-        var_dump($data);
+    //    var_dump($data);
     echo '</pre>';
     $i=0;
     foreach ($data as $d )
     {              
             $i=$i+1;
             $texto.= str_replace('2025-','',$d['D']).'     '.$d['T'].'      '.$d['W'].PHP_EOL;
-            if ($i>12) break;
+            //if ($i>12) break;
     }
     $respuesta = ['cook'=>$cook,'altura'=>$utide[0],'viento'=>$uwind[0]];   
+    echo '<pre>'.$texto.'</pre>';
    // echo '<pre>';    var_dump($respuesta);    echo '</pre>';
 
     // Get an indexed array of keys
@@ -149,7 +150,7 @@ $opciones =[];
             { $ibajo=$i; $bajo = $value; }
         else
             { if ($bajando) exit ;}
-        
+
         echo "Key: $key, Index: $i  Value: $value $alto $bajo \n";
     }
     $primer_valor = $data[array_key_first($data)]['T'];
