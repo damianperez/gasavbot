@@ -9,12 +9,10 @@ use Longman\TelegramBot\Entities\ServerResponse;
 use Longman\TelegramBot\Exception\TelegramException;
 
 
-global $keys;
 
 $cook = "mariweb_session=1c15115edecae9adeb17ce8b689fcda0; mw_lang=EN";
 $url_post = 'http://meteo.comisionriodelaplata.org/ecsCommand.php?c=telemetry/updateTelemetry&s=0.8081622188540726';
 $headers = [ ];
-
 $parametros = ['p'=> 1,
         'p1' => 2,
         'p2' => '2',            
