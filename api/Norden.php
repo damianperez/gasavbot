@@ -181,8 +181,10 @@ $opciones =[];
 
     function bajando($datos,$indice)
     {
+        $value = (float) $data[$keys[$indice]]['T'];
+        return $value > (float) $data[$keys[$indice+1]]['T'] && $value > (float) $data[$keys[$indice+2]]['T']  ;
         
-        return $datos[$key[$indice]]['T'] < $datos[$key[$indice+1]]['T'] && $datos[$key[$indice]]['T'] < $datos[$key[$indice]+2]['T'];
+        
     }
     function degrees_to_direction ($degrees, $short=true)
     {
