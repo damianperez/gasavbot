@@ -80,7 +80,7 @@ $opciones =[];
     
     $data = [];
     echo '<pre>';
-        var_dump($tide);
+      //  var_dump($tide);
     echo '</pre>';
     echo '<pre>';
         var_dump($utide);
