@@ -67,7 +67,7 @@ $opciones =[];
     $latest_estacion = $valores[5]->nodeValue;
 
 
-    $LECTURAS = 120;
+    $LECTURAS = -120;
     $wind = (array) $data->wind->chart->gust->series{1}->data;
     $uwind = array_reverse(array_slice( $wind, $LECTURAS  ));
     $tide = (array) $data->tide->chart->series;
