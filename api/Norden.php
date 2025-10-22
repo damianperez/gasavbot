@@ -80,7 +80,7 @@ $opciones =[];
     
 
     foreach ($utide as &$u)
-            $u[0] = DateTime::createFromFormat('U', $u[0] )->setTimezone('America/Argentina/Buenos_Aires')->format('Y-m-d H:i:s T');
+            $u[0] = DateTime::createFromFormat('U', $u[0] )->setTimezone(new DateTimeZone('America/Argentina/Buenos_Aires'))->format('Y-m-d H:i:s T');
             //$u[0]=date("Y-m-d H:i",$u[0]/1000);
 
     foreach ($uwind as &$u)
