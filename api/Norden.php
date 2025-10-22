@@ -79,6 +79,9 @@ $opciones =[];
             $u[0]=date("Y-m-d H:i",$u[0]/1000);
     
     $data = [];
+    echo '<pre>';
+        var_dump($utide);
+    echo '</pre>';
     foreach ($utide as $u )
     {
         if ($u[0]==null) continue;
