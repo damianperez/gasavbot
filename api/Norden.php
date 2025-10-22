@@ -68,7 +68,7 @@ $opciones =[];
     $latest_estacion = $valores[5]->nodeValue;
 
 
-    $LECTURAS = 120;
+    $LECTURAS = 60;
     $wind = (array) $data->wind->chart->gust->series{1}->data;
     $uwind = array_reverse(array_slice( $wind, $LECTURAS * -1 ));
     $tide = (array) $data->tide->chart->series;
@@ -165,7 +165,7 @@ $opciones =[];
         $endDateTime = new DateTime($data[$keys[$ialto]]['D']);    
         $interval = $startDateTime->diff($endDateTime);
         $difference = $interval->format('%h horas y %i minutos');        
-        echo "Bajando desde hace $difference ". $startDateTime->format("Y-m-d H:i:s").' '. $endDateTime->format("Y-m-d H:i:s"). ' '.$data[$keys[$ialto]]['D'] .PHP_EOL;
+        echo "Bajando desde hace $difference  de ". $startDateTime->format("Y-m-d H:i:s").' a '. $endDateTime->format("Y-m-d H:i:s"). ' '.$data[$keys[$ialto]]['D'] .PHP_EOL;
         }
     if ( $subiendo ) 
         {
