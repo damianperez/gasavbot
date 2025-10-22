@@ -69,9 +69,9 @@ $opciones =[];
 
     $LECTURAS = 120;
     $wind = (array) $data->wind->chart->gust->series{1}->data;
-    $uwind = array_reverse(array_slice( $wind, $LECTURAS * -1 ));
+    $uwind = array_reverse(array_slice( $wind, $LECTURAS  ));
     $tide = (array) $data->tide->chart->series;
-    $utide = array_reverse(array_slice( $tide[0]->data,$LECTURAS * -1 ));
+    $utide = array_reverse(array_slice( $tide[0]->data,$LECTURAS ));
     $nada = '- -  - -';
     foreach ($utide as &$u)
             $u[0]=date("Y-m-d H:i",$u[0]/1000);
