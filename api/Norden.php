@@ -7,7 +7,7 @@ use GuzzleHttp\Exception\RequestException;
 use Longman\TelegramBot\Entities\ServerResponse;
 use Longman\TelegramBot\Exception\TelegramException;
 
-date_default_timezone_set('America/Argentina/Buenos_Aires');
+//date_default_timezone_set('America/Argentina/Buenos_Aires');
 
 $cook = "mariweb_session=1c15115edecae9adeb17ce8b689fcda0; mw_lang=EN";
 $url_post = 'http://meteo.comisionriodelaplata.org/ecsCommand.php?c=telemetry/updateTelemetry&s=0.8081622188540726';
