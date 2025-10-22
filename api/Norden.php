@@ -141,10 +141,7 @@ $opciones =[];
                 $ialto=$i; $alto = $value;
                 break;
             } 
-
-
-
-
+        /*
         if ($value > $alto) { 
             $ialto=$i; $alto = $value; }
         else
@@ -157,6 +154,7 @@ $opciones =[];
             { if ($subiendo) break ;}
 
         echo "Key: $key, Index: $i  Value: $value $alto $bajo \n";
+        */
     }
     $primer_valor = $data[array_key_first($data)]['T'];
     $ultimo_valor = $data[array_key_last($data)]['T'];
