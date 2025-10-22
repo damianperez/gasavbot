@@ -165,7 +165,7 @@ $opciones =[];
         $endDateTime = new DateTime($data[$keys[$ialto]]['D']);    
         $interval = $startDateTime->diff($endDateTime);
         $difference = $interval->format('%h horas y %i minutos');        
-        echo "Bajando desde hace $difference ". $data[$keys[$ialto]]['D'] .PHP_EOL;
+        echo "Bajando desde hace $difference ". date('h:i',$startDateTime).' '. date('h:i',endDateTime). ' '.$data[$keys[$ialto]]['D'] .PHP_EOL;
         }
     if ( $subiendo ) 
         {
