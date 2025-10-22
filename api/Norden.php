@@ -136,9 +136,15 @@ $opciones =[];
         $value = (float) $data[$key]['T']; 
         if ( ! is_numeric($value))  continue;
         $hora = $data[$key]['D'];
+        if ($bajando && !bajando($data, $i) )
+            {
+                $ialto=$i; $alto = $value;
+                break;
+            } 
 
 
-        if ($bajando && !bajando($data, $i) ) break;
+
+
         if ($value > $alto) { 
             $ialto=$i; $alto = $value; }
         else
