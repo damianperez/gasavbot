@@ -74,13 +74,10 @@ $opciones =[];
     $utide = array_reverse(array_slice( $tide[0]->data,$LECTURAS ));
     $nada = '- -  - -';
 
-
-    
-    
-    
+    //->setTimezone(new DateTimeZone('America/Argentina/Buenos_Aires'))/
 
     foreach ($utide as &$u)
-            $u[0] = DateTime::createFromFormat('U', $u[0]/1000 )->setTimezone(new DateTimeZone('America/Argentina/Buenos_Aires'))->format("Y-m-d H:i");
+            $u[0] = DateTime::createFromFormat('U', $u[0]/1000 )->format("Y-m-d H:i");
             //$u[0]=date("Y-m-d H:i",$u[0]/1000);
 
     foreach ($uwind as &$u)
