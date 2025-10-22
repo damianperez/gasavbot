@@ -111,8 +111,7 @@ $opciones =[];
     }
     $respuesta = ['cook'=>$cook,'altura'=>$utide[0],'viento'=>$uwind[0]];   
     echo '<pre>'.$texto.'</pre>';
-   // echo '<pre>';    var_dump($respuesta);    echo '</pre>';
-    // Get an indexed array of keys
+
     $keys = array_keys($data);
     $ialto = 0;
     $ibajo = 0 ;
