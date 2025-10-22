@@ -158,7 +158,7 @@ $opciones =[];
     }
     $primer_valor = $data[array_key_first($data)]['T'];
     $ultimo_valor = $data[array_key_last($data)]['T'];
-    $startDateTime = new DateTime($latest_fecha);
+    $startDateTime = new DateTime('now');
     
     if ( $bajando ) 
         {
