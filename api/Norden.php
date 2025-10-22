@@ -73,8 +73,16 @@ $opciones =[];
     $tide = (array) $data->tide->chart->series;
     $utide = array_reverse(array_slice( $tide[0]->data,$LECTURAS ));
     $nada = '- -  - -';
+
+
+    
+    
+    
+
     foreach ($utide as &$u)
-            $u[0]=date("Y-m-d H:i",$u[0]/1000);
+            $u[0] = DateTime::createFromFormat('U', $u[0] )->setTimezone('America/Argentina/Buenos_Aires')->format('Y-m-d H:i:s T');
+            //$u[0]=date("Y-m-d H:i",$u[0]/1000);
+
     foreach ($uwind as &$u)
             $u[0]=date("Y-m-d H:i",$u[0]/1000);
     
