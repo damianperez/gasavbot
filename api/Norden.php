@@ -138,7 +138,7 @@ $opciones =[];
         $hora = $data[$key]['D'];
 
 
-        if ($bajando && !bajando(bajando($data, $i)) ) break;
+        if ($bajando && !bajando($data, $i) ) break;
         if ($value > $alto) { 
             $ialto=$i; $alto = $value; }
         else
