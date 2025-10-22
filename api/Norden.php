@@ -80,6 +80,9 @@ $opciones =[];
     
     $data = [];
     echo '<pre>';
+        var_dump($tide);
+    echo '</pre>';
+    echo '<pre>';
         var_dump($utide);
     echo '</pre>';
     foreach ($utide as $u )
