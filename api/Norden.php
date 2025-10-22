@@ -170,7 +170,7 @@ $opciones =[];
     
     if ( $bajando ) 
         {
-        $endDateTime = new DateTime($data[$keys[$ialto]]['D']);    
+        $endDateTime = new DateTime($data[$keys[$ialto]]['D'],new DateTimeZone('America/Argentina/Buenos_Aires'));    
         $interval = $startDateTime->diff($endDateTime);
         $difference = $interval->format('%h horas y %i minutos');        
         echo "Bajando desde hace $difference  de ". $startDateTime->format("Y-m-d H:i:s").' a '. $endDateTime->format("Y-m-d H:i:s"). ' '.$data[$keys[$ialto]]['D'] .PHP_EOL;
