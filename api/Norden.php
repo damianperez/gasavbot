@@ -84,12 +84,7 @@ $opciones =[];
             $u[0]=date("Y-m-d H:i",$u[0]/1000);
     
     $data = [];
-    echo '<pre>';
-      //  var_dump($tide);
-    echo '</pre>';
-    echo '<pre>';
-        var_dump($utide);
-    echo '</pre>';
+    
     foreach ($utide as $u )
     {
         if ($u[0]==null) continue;
@@ -171,7 +166,7 @@ $opciones =[];
     }
     $primer_valor = $data[array_key_first($data)]['T'];
     $ultimo_valor = $data[array_key_last($data)]['T'];
-    $startDateTime = new DateTime('now');
+    $startDateTime = new DateTime('now',new DateTimeZone('America/Argentina/Buenos_Aires'));
     
     if ( $bajando ) 
         {
