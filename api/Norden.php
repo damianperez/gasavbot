@@ -20,7 +20,7 @@ $parametros = ['p'=> 1,
         'p4' => 'update',                      
         ];
 $opciones =[];
-    
+
 
  
     $headers = [
@@ -68,10 +68,11 @@ $opciones =[];
     $latest_estacion = $valores[5]->nodeValue;
 
 
+    $LECTURAS = 120;
     $wind = (array) $data->wind->chart->gust->series{1}->data;
-    $uwind = array_reverse(array_slice( $wind,-120));
+    $uwind = array_reverse(array_slice( $wind, $LECTURAS * -1 ));
     $tide = (array) $data->tide->chart->series;
-    $utide = array_reverse(array_slice( $tide[0]->data,-120));
+    $utide = array_reverse(array_slice( $tide[0]->data,$LECTURAS * -1 ));
     $nada = '- -  - -';
     foreach ($utide as &$u)
             $u[0]=date("Y-m-d H:i",$u[0]/1000);
@@ -180,13 +181,12 @@ $opciones =[];
     function bajando($data,$indice)
     {
         global $keys;
+        global $LECTURAS;
         $value = (float) $data[$keys[$indice]]['T'];
         $v2 = (float) $data[$keys[$indice+1]]['T'];
         $v3 = (float) $data[$keys[$indice+1]]['T'];
         //echo "$value > $v2 > && $value > $v3 ".PHP_EOL;
         return $value < $v2  && $value < $v3 ;
-        
-        
     }
     function degrees_to_direction ($degrees, $short=true)
     {
