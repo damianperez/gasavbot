@@ -127,19 +127,18 @@ $opciones =[];
     $estable=false;
     echo '<pre>';
     $tide_ahora= (float) $data[$keys[0]]['T'];
-    if ( bajando(  $data,0 ))
-    //if ( $tide_ahora <  (float) $data[$keys[1]]['T'] &&  $value < (float) $data[$keys[2]]['T']  )
-                $bajando=true;
-            elseif ( $value > (float) $data[$keys[1]]['T'] && $value > (float) $data[$keys[2]]['T']  )
-                $subiendo=true;
-            else
-                $estable = true;
+    $bajando = bajando(  $data,0 );
+    $subiendo = !$bajando;
+    
     if ($bajando) echo '<hr>Bajando<hr>';
     for ($i = 0; $i < count($keys); $i++) {
         $key = $keys[$i];
         $value = (float) $data[$key]['T']; 
         if ( ! is_numeric($value))  continue;
         $hora = $data[$key]['D'];
+
+
+        if ($bajando && !bajando(bajando($data, $i)) ) break;
         if ($value > $alto) { 
             $ialto=$i; $alto = $value; }
         else
