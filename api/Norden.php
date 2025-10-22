@@ -190,8 +190,9 @@ $headers = [
         global $LECTURAS;
         $value = (float) $data[$keys[$indice]]['T'];
         $v2 = (float) $data[$keys[$indice+1]]['T'];
-        $v3 = (float) $data[$keys[$indice+1]]['T'];
+        $v3 = (float) $data[$keys[$indice+2]]['T'];
         //echo "$value > $v2 > && $value > $v3 ".PHP_EOL;
+        if ($value < $v3) return true;
         return $value < $v2  && $value < $v3 ;
     }
     
