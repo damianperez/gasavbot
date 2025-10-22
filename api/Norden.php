@@ -141,6 +141,11 @@ $opciones =[];
                 $ialto=$i; $alto = $value;
                 break;
             } 
+        if ($subiendo && bajando($data, $i) )
+            {
+                $ibajo=$i; $bajo = $value;
+                break;
+            } 
         /*
         if ($value > $alto) { 
             $ialto=$i; $alto = $value; }
@@ -190,6 +195,17 @@ $opciones =[];
         $v3 = (float) $data[$keys[$indice+1]]['T'];
         //echo "$value > $v2 > && $value > $v3 ".PHP_EOL;
         return $value < $v2  && $value < $v3 ;
+    }
+    
+    function subiendo($data,$indice)
+    {
+        global $keys;
+        global $LECTURAS;
+        $value = (float) $data[$keys[$indice]]['T'];
+        $v2 = (float) $data[$keys[$indice+1]]['T'];
+        $v3 = (float) $data[$keys[$indice+1]]['T'];
+        //echo "$value > $v2 > && $value > $v3 ".PHP_EOL;
+        return $value > $v2  && $value > $v3 ;
     }
     function degrees_to_direction ($degrees, $short=true)
     {
