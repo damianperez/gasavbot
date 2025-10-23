@@ -68,6 +68,21 @@ class NordenCommand extends UserCommand
      
          return $dir_ary[$idx][1];
      }
+    function bajando($data,$indice)
+    {
+        global $keys;
+        global $LECTURAS;
+        $value = (float) $data[$keys[$indice]]['T'];
+        $v1 = (float) $data[$keys[$indice+1]]['T'];
+        $v2 = (float) $data[$keys[$indice+2]]['T'];
+        $v3 = (float) $data[$keys[$indice+3]]['T'];
+        $v4 = (float) $data[$keys[$indice+4]]['T'];
+        
+        //echo "$value > $v2 > && $value > $v3 ".PHP_EOL;
+        if ($value < $v4) return true;
+        if ($value < $v3) return true;
+        return $value < $v1  && $value < $v2 ;
+    }
     public function execute(): ServerResponse
     {
         $message = $this->getMessage();
