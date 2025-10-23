@@ -55,6 +55,8 @@ $e['GetSerialNo']             ="magicBox.cgi?action=getSerialNo";
 $e['GetMachineName']          ="magicBox.cgi?action=getMachineName";
 $e['GetSystemInfo']           ="magicBox.cgi?action=getSystemInfo";
 
+#Damian
+$e['SnapShot']           ="snapshot.cgi?channel=0";
 # DeviceINput
 $e['GetDeviceCaps']           ="devVideoInput.cgi?action=getCaps&channel=0";
 
