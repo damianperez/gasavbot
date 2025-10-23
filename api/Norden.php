@@ -189,11 +189,15 @@ $headers = [
         global $keys;
         global $LECTURAS;
         $value = (float) $data[$keys[$indice]]['T'];
-        $v2 = (float) $data[$keys[$indice+1]]['T'];
-        $v3 = (float) $data[$keys[$indice+2]]['T'];
+        $v1 = (float) $data[$keys[$indice+1]]['T'];
+        $v2 = (float) $data[$keys[$indice+2]]['T'];
+        $v3 = (float) $data[$keys[$indice+3]]['T'];
+        $v4 = (float) $data[$keys[$indice+4]]['T'];
+        
         //echo "$value > $v2 > && $value > $v3 ".PHP_EOL;
+        if ($value < $v4) return true;
         if ($value < $v3) return true;
-        return $value < $v2  && $value < $v3 ;
+        return $value < $v1  && $value < $v2 ;
     }
     
     function subiendo($data,$indice)
