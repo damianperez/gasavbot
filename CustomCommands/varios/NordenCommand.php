@@ -176,12 +176,14 @@ class NordenCommand extends UserCommand
         foreach ($data as $d )
         {               
                 #Acá podría fijarme y hacer cuentas si viene subiendo o bajando
-                $texto.= str_replace('2025-','',$d['D']).'     '.$d['T'].'      '.$d['W'].PHP_EOL;
+                if ($lineas < 15)
+                    $texto.= str_replace('2025-','',$d['D']).'     '.$d['T'].'      '.$d['W'].PHP_EOL;
                 $lineas += 1;
-                if ($lineas > 15) break;
+                
                 
         }
-
+        $bajando = bajando(  $data,0 );
+        if ($bajando ) $texto.= 'Bajando';
         
     
         $respuesta = ['cook'=>$this->cook,'altura'=>$utide[0],'viento'=>$uwind[0]];
