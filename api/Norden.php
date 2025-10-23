@@ -165,10 +165,11 @@ $headers = [
     
     if ( $bajando ) 
         {
+        
         $endDateTime = new DateTime($data[$keys[$ialto]]['D'],new DateTimeZone('America/Argentina/Buenos_Aires'));    
         $interval = $startDateTime->diff($endDateTime);
         $difference = $interval->format('%h horas y %i minutos');        
-        echo "Bajando desde hace $difference   (". $endDateTime->format("H:i").")" .PHP_EOL;
+        echo "Bajó ".$alto - $primer_valor. "en $difference   (". $endDateTime->format("H:i").")" .PHP_EOL;
         }
     if ( $subiendo ) 
         {
