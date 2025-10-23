@@ -169,7 +169,7 @@ $headers = [
         $endDateTime = new DateTime($data[$keys[$ialto]]['D'],new DateTimeZone('America/Argentina/Buenos_Aires'));    
         $interval = $startDateTime->diff($endDateTime);
         $difference = $interval->format('%h horas y %i minutos');        
-        echo "Bajó ".$alto - $primer_valor. "en $difference   (". $endDateTime->format("H:i").")" .PHP_EOL;
+        echo "Bajó ".round($alto - $primer_valor,1). " cms en $difference   (". $endDateTime->format("H:i").")" .PHP_EOL;
         }
     if ( $subiendo ) 
         {
