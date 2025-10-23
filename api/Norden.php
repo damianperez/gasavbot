@@ -125,6 +125,8 @@ $headers = [
     $estable=false;
     echo '<pre>';
     $tide_ahora= (float) $data[$keys[0]]['T'];
+
+    $keys = array_keys($data);
     $bajando = bajando(  $data,0 );
     $subiendo = !$bajando;
     
