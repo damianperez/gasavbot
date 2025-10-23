@@ -135,14 +135,12 @@ class NordenCommand extends UserCommand
         $latest_direcc = $valores[4]->nodeValue;
         $latest_estacion = $valores[5]->nodeValue;
 
-
+        global $keys;
+        $LECTURAS = -120 ;
         $wind = (array) $data->wind->chart->gust->series{1}->data;
-        $uwind = array_reverse(array_slice( $wind,-12));
+        $uwind = array_reverse(array_slice( $wind, $LECTURAS ));
         $tide = (array) $data->tide->chart->series;
-        $utide = array_reverse(array_slice( $tide[0]->data,-12));
-
-        
-
+        $utide = array_reverse(array_slice( $tide[0]->data, $LECTURAS ));
 
 
         $nada = '- -  - -';
@@ -174,10 +172,13 @@ class NordenCommand extends UserCommand
         $texto.='<b>Ultima hora</b>'.PHP_EOL.
                 'Date                     Rio       Knots'.PHP_EOL;
         //$texto.='Date                     Rio       Knots'.PHP_EOL;        
+        $lineas = 1;
         foreach ($data as $d )
         {               
                 #Acá podría fijarme y hacer cuentas si viene subiendo o bajando
                 $texto.= str_replace('2025-','',$d['D']).'     '.$d['T'].'      '.$d['W'].PHP_EOL;
+                $lineas += 1;
+                if ($lineas > 15) break;
                 
         }
 
