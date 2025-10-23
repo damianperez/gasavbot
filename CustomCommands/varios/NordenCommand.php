@@ -182,7 +182,7 @@ class NordenCommand extends UserCommand
                 
                 
         }
-        $bajando = bajando(  $data,0 );
+        $bajando = $this->bajando(  $data,0 );
         if ($bajando ) $texto.= 'Bajando';
         
     
