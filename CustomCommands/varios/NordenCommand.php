@@ -107,11 +107,9 @@ class NordenCommand extends UserCommand
             ];
         $this->opciones = ['form_params' => $this->parametros,        
                             'headers'     => $this->headers,];
-       //$client = new GuzzleHttp\Client();
-       $this->client = new Client();
-        //var_dump($this->opciones);
+        //$client = new GuzzleHttp\Client();
+        $this->client = new Client();        
         $response = $this->client->request('POST',$this->url_post,$this->opciones);
-
         $cook=$response->getHeaderLine("Set-Cookie");    
         if (!empty($cook))
             {
@@ -119,8 +117,6 @@ class NordenCommand extends UserCommand
             $client = new Client();
             $response = $client->request('POST',$this->url_post,$this->opciones);
             }
-        
-        
         $this->parajson =  str_replace('OKupdateStationTelemetry|JSON**', "", $response->getBody());
         $data = json_decode($this->parajson,false); 
         $latest = rawurldecode( $data->wind->latest);
@@ -180,6 +176,7 @@ class NordenCommand extends UserCommand
                 $texto.= str_replace('2025-','',$d['D']).'     '.$d['T'].'      '.$d['W'].PHP_EOL;
             $lineas += 1;
         }
+        $keys = array_keys($data);
         $bajando = $this->bajando(  $data,0 );
         if ($bajando ) $texto.= 'Bajando';
         
