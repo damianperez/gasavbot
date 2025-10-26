@@ -172,7 +172,7 @@ class NordenCommand extends UserCommand
         foreach ($data as $d )
         {               
             #Acá podría fijarme y hacer cuentas si viene subiendo o bajando
-            if ($lineas < 15)
+            if ($lineas < 21)
                 $texto.= str_replace('2025-','',$d['D']).'     '.$d['T'].'      '.$d['W'].PHP_EOL;
             $lineas += 1;
         }
