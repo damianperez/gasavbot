@@ -91,7 +91,7 @@ $headers = [
     {
         if ($u[0]==null) continue;
         $data[$u[0]]['D']=$u[0];
-        $data[$u[0]]['W']number_format(round($u[1],1),1);   
+        $data[$u[0]]['W']=number_format(round($u[1],1),1);   
         if (!isset($data[$u[0]]['T'] )) $data[$u[0]]['T']=$nada;
     }
     $texto = "Ultima medicion ".PHP_EOL. $latest_fecha.' '.PHP_EOL.
