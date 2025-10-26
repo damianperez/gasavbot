@@ -150,7 +150,7 @@ class NordenCommand extends UserCommand
         {
             if ($u[0]==null) continue;
             $data[$u[0]]['D']=$u[0];
-            $data[$u[0]]['T']=round($u[1],1);       
+            $data[$u[0]]['T']=number_format(round($u[1],2),1);   
             if (!isset($data[$u[0]]['W'] )) $data[$u[0]]['W']=$nada;
         }
         foreach ($uwind as $u )
