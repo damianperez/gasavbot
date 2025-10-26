@@ -150,14 +150,14 @@ class NordenCommand extends UserCommand
         {
             if ($u[0]==null) continue;
             $data[$u[0]]['D']=$u[0];
-            $data[$u[0]]['T']=$u[1];       
+            $data[$u[0]]['T']=round($u[1],1);       
             if (!isset($data[$u[0]]['W'] )) $data[$u[0]]['W']=$nada;
         }
         foreach ($uwind as $u )
         {
             if ($u[0]==null) continue;
             $data[$u[0]]['D']=$u[0];
-            $data[$u[0]]['W']=$u[1];
+            $data[$u[0]]['W']=round($u[1],1);
             if (!isset($data[$u[0]]['T'] )) $data[$u[0]]['T']=$nada;
         }
         $texto = "Ultima medicion ".PHP_EOL. $latest_fecha.' '.PHP_EOL.

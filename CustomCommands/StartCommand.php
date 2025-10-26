@@ -119,9 +119,10 @@ $texto3 = "<b>¡Te esperamos para compartir momentos únicos en nuestro club!</b
         // Do nothing
         return Request::emptyResponse();
 /*
-        norden - Estado actual del Pilote Norden
-        foto   - Snapshot de la WebCam al río
-        start  - Mostrar el QR para compartir
+norden - Estado actual del Pilote Norden
+foto   - Snapshot de la WebCam al río
+start  - Mostrar el QR para compartir
+help   - Ayuda
 */
 
     }
