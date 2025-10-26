@@ -178,7 +178,7 @@ class NordenCommand extends UserCommand
         }
         $keys = array_keys($data);
         $bajando = $this->bajando(  $data,0 );
-        if ($bajando ) $texto.= 'Bajando';
+        if ($bajando ) $texto.= 'Rio bajando';
         
     
         $respuesta = ['cook'=>$this->cook,'altura'=>$utide[0],'viento'=>$uwind[0]];
