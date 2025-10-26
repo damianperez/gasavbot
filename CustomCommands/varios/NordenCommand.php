@@ -165,8 +165,8 @@ class NordenCommand extends UserCommand
             self::degrees_to_direction ($latest_direcc, true).
             '</b> <i>('.$latest_direcc.'°)</i>'.PHP_EOL;
 
-        $texto.='<b>Ultima hora</b>'.PHP_EOL.
-                'Date                   Rio        Knots'.PHP_EOL;
+        $texto.='<b>Ultimas 2 horas</b>'.PHP_EOL.
+                'Date                   Rio       Knots'.PHP_EOL;
         //$texto.='Date                     Rio       Knots'.PHP_EOL;        
         $lineas = 1;
         foreach ($data as $d )
