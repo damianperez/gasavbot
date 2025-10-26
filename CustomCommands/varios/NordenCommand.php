@@ -166,7 +166,7 @@ class NordenCommand extends UserCommand
             '</b> <i>('.$latest_direcc.'°)</i>'.PHP_EOL;
 
         $texto.='<b>Ultima hora</b>'.PHP_EOL.
-                'Date                     Rio       Knots'.PHP_EOL;
+                'Date                   Rio        Knots'.PHP_EOL;
         //$texto.='Date                     Rio       Knots'.PHP_EOL;        
         $lineas = 1;
         foreach ($data as $d )
