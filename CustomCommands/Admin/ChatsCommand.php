@@ -127,6 +127,7 @@ class ChatsCommand extends AdminCommand
             $text_back .= PHP_EOL . 'Super Groups: ' . $supergroup_chats;
             $text_back .= PHP_EOL . 'Channels: ' . $channel_chats;
             $text_back .= PHP_EOL . 'Total: ' . ($user_chats + $group_chats + $supergroup_chats);
+            $text_back .= PHP_EOL . date('h:m');
 
             if ($text === '') {
                 $text_back .= PHP_EOL . PHP_EOL . 'List all chats: /' . $this->name . ' *' . PHP_EOL . 'Search for chats: /' . $this->name . ' <search string>';
