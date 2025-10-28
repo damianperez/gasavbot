@@ -93,7 +93,7 @@ class ChatsCommand extends AdminCommand
 
                 if ($chat->isPrivateChat()) {
                     if ($text !== '') {
-                        $text_back .= '- P ' . $chat->tryMention() . ' [' . $whois . ']' . PHP_EOL;
+                        $text_back .= '- P ' . $chat->tryMention() . ' [' . $whois . ']' .' '. $result['chat_updated_at'].PHP_EOL;
                     }
 
                     ++$user_chats;
@@ -113,7 +113,7 @@ class ChatsCommand extends AdminCommand
                     if ($text !== '') {
                         $text_back .= '- C ' . $chat->getTitle() . ' [' . $whois . ']' . PHP_EOL;
                     }
-
+                    
                     ++$channel_chats;
                 }
             }
