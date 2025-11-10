@@ -160,7 +160,7 @@ class ColoniaCommand extends UserCommand
             $data[$u[0]]['W']=number_format(round($u[1],1),1);
             if (!isset($data[$u[0]]['T'] )) $data[$u[0]]['T']=$nada;
         }
-        $texto = "Ultima medicion ".PHP_EOL. $latest_fecha.' '.PHP_EOL.
+        $texto = '<b>Puerto Colonia</b> Lat -34.47 Lon -57.84'.PHP_EOL."Ultima medicion ".PHP_EOL. $latest_fecha.' '.PHP_EOL.
             '<b>'. $latest_viento.' knts '.      
             self::degrees_to_direction ($latest_direcc, true).
             '</b> <i>('.$latest_direcc.'°)</i>'.PHP_EOL;
