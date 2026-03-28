@@ -114,7 +114,9 @@ class SocioCommand extends AdminCommand
         if (is_numeric($text)) 
                 $SQL .= " WHERE Nro_socio='$text'";
                 else
-                $SQL .= " WHERE (`Apellido y nombre` like '%$text%' OR `Lugar de pago` like '%$text%' OR Actividad like '%$text%')";        
+                $SQL .= " WHERE (`Apellido y nombre` like '%$text%' OR `Lugar de pago` like '%$text%' OR Actividad like '%$text%' 
+                OR Domicilio like '%$text%' OR `telefono 1` like '%$text%' OR `E-Mail` like '%$text%' 
+                OR Estado like '%$text%' OR `Observaciones Comision Directiva` like '%$text%')";        
 
         $results = $this->query($SQL);
         if ( !is_array($results) ) {
