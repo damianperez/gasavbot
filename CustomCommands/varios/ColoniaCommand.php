@@ -6,7 +6,7 @@ use Longman\TelegramBot\Commands\UserCommand;
 use Longman\TelegramBot\Entities\ServerResponse;
 use Longman\TelegramBot\Exception\TelegramException;
 
-class NordenCommand extends UserCommand
+class ColoniaCommand extends UserCommand
 {
     /**
      * Guzzle Client object
@@ -18,11 +18,10 @@ class NordenCommand extends UserCommand
     public $cook = "mariweb_session=1c15115edecae9adeb17ce8b689fcda0; mw_lang=EN";
     public $url_post = 'http://meteo.comisionriodelaplata.org/ecsCommand.php?c=telemetry/updateTelemetry&s=0.8081622188540726';
     public $headers = [ ];
-    const COLONIA = 1;
-    const NORDEN = 2;
+    
     public $parametros = ['p'=> 1,
-            'p1' => 2,
-            'p2' => '2',            
+            'p1' => 1,
+            'p2' => '1',            
             'p3' => '1', 
             'p4' => 'update',                      
             ];
@@ -35,9 +34,9 @@ class NordenCommand extends UserCommand
     /**
      * @var string
      */
-    protected $name = 'Norden';
-    protected $description = 'Ultimos datos del Pilote Norden';
-    protected $usage = '/Norden <text>';
+    protected $name = 'Colonia';
+    protected $description = 'Ultimos datos de Pto. Colonia';
+    protected $usage = '/Colonia <text>';
     protected $version = '1.2.0';
     function degrees_to_direction ($degrees, $short=true)
      {
@@ -161,7 +160,7 @@ class NordenCommand extends UserCommand
             $data[$u[0]]['W']=number_format(round($u[1],1),1);
             if (!isset($data[$u[0]]['T'] )) $data[$u[0]]['T']=$nada;
         }
-        $texto = '<b>Pilote Norden</b>  Lat -34.62 Lon -57.92'.PHP_EOL."Ultima medicion ".PHP_EOL. $latest_fecha.' '.PHP_EOL.
+        $texto = '<b>Puerto Colonia</b> Lat -34.47 Lon -57.84'.PHP_EOL."Ultima medicion ".PHP_EOL. $latest_fecha.' '.PHP_EOL.
             '<b>'. $latest_viento.' knts '.      
             self::degrees_to_direction ($latest_direcc, true).
             '</b> <i>('.$latest_direcc.'°)</i>'.PHP_EOL;

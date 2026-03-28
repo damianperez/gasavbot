@@ -93,7 +93,7 @@ class ChatsCommand extends AdminCommand
 
                 if ($chat->isPrivateChat()) {
                     if ($text !== '') {
-                        $text_back .= '- P ' . $chat->tryMention() . ' [' . $whois . ']' . PHP_EOL;
+                        $text_back .= '- P ' . $chat->tryMention() . ' [' . $whois . ']' .' '. str_replace('2025-','',$result['chat_updated_at']).PHP_EOL;
                     }
 
                     ++$user_chats;
@@ -113,7 +113,7 @@ class ChatsCommand extends AdminCommand
                     if ($text !== '') {
                         $text_back .= '- C ' . $chat->getTitle() . ' [' . $whois . ']' . PHP_EOL;
                     }
-
+                    
                     ++$channel_chats;
                 }
             }
@@ -127,6 +127,7 @@ class ChatsCommand extends AdminCommand
             $text_back .= PHP_EOL . 'Super Groups: ' . $supergroup_chats;
             $text_back .= PHP_EOL . 'Channels: ' . $channel_chats;
             $text_back .= PHP_EOL . 'Total: ' . ($user_chats + $group_chats + $supergroup_chats);
+            $text_back .= PHP_EOL . date('h:m');
 
             if ($text === '') {
                 $text_back .= PHP_EOL . PHP_EOL . 'List all chats: /' . $this->name . ' *' . PHP_EOL . 'Search for chats: /' . $this->name . ' <search string>';
