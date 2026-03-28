@@ -118,8 +118,7 @@ class SocioCommand extends AdminCommand
                 $socio['Actividad'].' - ' . $socio['Domicilio'] . ' - ' . $socio['telefono 1'] . ' - ' . $socio['E-Mail'].PHP_EOL.
                 $socio['Estado'].' - ' . $socio['Observaciones Comision Directiva'] .PHP_EOL;
             }
-        }
-        
+        }        
         return Request::sendMessage($data);
     }
     
