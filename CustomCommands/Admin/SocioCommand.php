@@ -109,7 +109,7 @@ class SocioCommand extends AdminCommand
             'text'    => 'Buscando socios...',
             'parse_mode' => 'HTML',
         ];
-        $SQL = "SELECT * FROM socios";
+        $SQL = "SELECT * FROM users ";
         if (is_numeric($text)) 
                 $SQL .= " WHERE Nro_socio='$text'";
                 else
