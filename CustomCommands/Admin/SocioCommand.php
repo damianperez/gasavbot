@@ -107,6 +107,7 @@ class SocioCommand extends AdminCommand
         $data = [
             'chat_id' => $chat_id,
             'text'    => 'Buscando socios...',
+            'parse_mode' => 'HTML',
         ];
         $results = $this->query('SELECT * FROM users WHERE `Apellido y nombre` LIKE :search', ['search' => '%' . $text . '%']);
         if (empty($results)) {
@@ -114,9 +115,9 @@ class SocioCommand extends AdminCommand
         } else {
             $data['text'] = "Socios encontrados:\n";
             foreach ($results as $socio) {
-                $data['text'] .= $socio['Nro_socio'] . ' - ' . $socio['Apellido y nombre'].PHP_EOL.
+                $data['text'] .='<b>' . $socio['Nro_socio'] . ' - ' . $socio['Apellido y nombre'].'</b>'.PHP_EOL.
                 $socio['Actividad'].' - ' . $socio['Domicilio'] . ' - ' . $socio['telefono 1'] . ' - ' . $socio['E-Mail'].PHP_EOL.
-                $socio['Estado'].' - ' . $socio['Observaciones Comision Directiva'] .PHP_EOL;
+                '<i>' . $socio['Estado'].' - ' . $socio['Observaciones Comision Directiva'] . '</i>'.PHP_EOL;
             }
         }        
         return Request::sendMessage($data);
