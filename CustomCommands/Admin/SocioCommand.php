@@ -110,13 +110,28 @@ class SocioCommand extends AdminCommand
             'text'    => 'Buscando socios...',
             'parse_mode' => 'HTML',
         ];
+        $parametros = explode(' ', $text);
+        $p1 = $parametros[0] ?? '';
+        $p2 = $parametros[1] ?? '';     
+        $p3 = $parametros[2] ?? '';
+        $p4 = $parametros[3] ?? '';
+
         $SQL = "SELECT * FROM users ";
-        if (is_numeric($text)) 
-                $SQL .= " WHERE Nro_socio='$text'";
+        if (is_numeric($p1)) 
+                $SQL .= " WHERE Nro_socio='$p1'";
                 else
-                $SQL .= " WHERE (`Apellido y nombre` like '%$text%' OR `Lugar de pago` like '%$text%' OR Actividad like '%$text%' 
-                OR Domicilio like '%$text%' OR `telefono 1` like '%$text%' OR `E-Mail` like '%$text%' 
-                OR Estado like '%$text%' OR `Observaciones Comision Directiva` like '%$text%')";        
+                $SQL .= " WHERE (`Apellido y nombre` like '%$p1%' OR `Lugar de pago` like '%$p1%' OR Actividad like '%$p1%' 
+                OR Domicilio like '%$p1%' OR `telefono 1` like '%$p1%' OR `E-Mail` like '%$p1%' 
+                OR Estado like '%$p1%' OR `Observaciones Comision Directiva` like '%$p1%') limit 100";  
+        if ($p2) {
+            $SQL .= " AND ( `Apellido y nombre` like '%$p2%' OR `Lugar de pago` like '%$p2%' OR Actividad like '%$p2%' )    ";
+        }
+        if ($p3) {
+            $SQL .= " AND ( `Apellido y nombre` like '%$p3%' OR `Lugar de pago` like '%$p3%' OR Actividad like '%$p3%' )    ";
+        }
+        if ($p4) {
+            $SQL .= " AND ( `Apellido y nombre` like '%$p4%' OR `Lugar de pago` like '%$p4%' OR Actividad like '%$p4%' )    ";
+        }      
 
         $results = $this->query($SQL);
         if ( !is_array($results) ) {
