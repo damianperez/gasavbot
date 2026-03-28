@@ -54,6 +54,38 @@ class SocioCommand extends AdminCommand
      * @return ServerResponse
      * @throws TelegramException
      */
+    public static function initialize(
+        array $credentials,
+        Telegram $telegram,
+        $table_prefix = '',
+        $encoding = 'utf8mb4'
+    ): PDO {
+        if (empty($credentials)) {
+            throw new TelegramException('MySQL credentials not provided!');
+        }
+
+        $dsn = 'mysql:host=' . $credentials['host'] . ';dbname=' . $credentials['database'];
+        if (!empty($credentials['port'])) {
+            $dsn .= ';port=' . $credentials['port'];
+        }
+
+        $options = [PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES ' . $encoding];
+        try {
+            $pdo = new PDO($dsn, $credentials['user'], $credentials['password'], $options);
+            $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING);
+        } catch (PDOException $e) {
+            throw new TelegramException($e->getMessage());
+        }
+
+        self::$pdo               = $pdo;
+        self::$telegram          = $telegram;
+        self::$mysql_credentials = $credentials;
+        self::$table_prefix      = $table_prefix;
+
+        self::defineTables();
+
+        return self::$pdo;
+    }
     function query($sql, $params = [])
     {
         try {
