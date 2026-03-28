@@ -87,10 +87,8 @@ class SocioCommand extends AdminCommand
         return self::$pdo;
     }
     function query($sql, $params = [])
-    {
-        
-        $config = require __DIR__ . '/../../config.php';
-       
+    {        
+        $config = require __DIR__ . '/../../config.php';       
         try {
             $pdo = new PDO('mysql:host=' . $config['mysql']['host'] . ';dbname=' . $config['mysql']['database'], $config['mysql']['user'], $config['mysql']['password']);
             $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -104,10 +102,8 @@ class SocioCommand extends AdminCommand
     public function execute(): ServerResponse
     {
         $message = $this->getMessage() ?: $this->getEditedMessage() ?: $this->getChannelPost() ?: $this->getEditedChannelPost();
-
         $chat_id = $message->getChat()->getId();
-        $text    = trim($message->getText(true));
-       
+        $text    = trim($message->getText(true));       
         $data = [
             'chat_id' => $chat_id,
             'text'    => 'Buscando socios...',
