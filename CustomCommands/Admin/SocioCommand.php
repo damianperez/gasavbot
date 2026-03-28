@@ -17,6 +17,9 @@ use Longman\TelegramBot\Entities\Chat;
 use Longman\TelegramBot\Entities\ServerResponse;
 use Longman\TelegramBot\Exception\TelegramException;
 use Longman\TelegramBot\Request;
+use PDO;
+use PDOException;
+
 
 class SocioCommand extends AdminCommand
 {
@@ -51,6 +54,18 @@ class SocioCommand extends AdminCommand
      * @return ServerResponse
      * @throws TelegramException
      */
+    function query($sql, $params = [])
+    {
+        try {
+            $pdo = new PDO('mysql:host=' . DB::getHost() . ';dbname=' . DB::getDatabase(), DB::getUser(), DB::getPassword());
+            $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            $stmt = $pdo->prepare($sql);
+            $stmt->execute($params);
+            return $stmt->fetchAll(PDO::FETCH_ASSOC);
+        } catch (PDOException $e) {
+            throw new TelegramException('Database error: ' . $e->getMessage());
+        }
+    }
     public function execute(): ServerResponse
     {
         $message = $this->getMessage() ?: $this->getEditedMessage() ?: $this->getChannelPost() ?: $this->getEditedChannelPost();
@@ -62,7 +77,19 @@ class SocioCommand extends AdminCommand
             'chat_id' => $chat_id,
             'text'    => 'Buscando socios...',
         ];
-
+        $results = $this->query('SELECT * FROM socios WHERE `Apellido y nombre` LIKE :search', ['search' => '%' . $text . '%']);
+        if (empty($results)) {
+            $data['text'] = 'No se encontraron socios con ese nombre.';
+        } else {
+            $data['text'] = "Socios encontrados:\n";
+            foreach ($results as $socio) {
+                $data['text'] .= $socio['Nro_socio'] . ' - ' . $socio['Apellido y nombre'].PHP_EOL.
+                $socio['Actividad'].' - ' . $socio['Domicilio'] . ' - ' . $socio['telefono 1'] . ' - ' . $socio['E-Mail'].PHP_EOL.
+                $socio['Estado'].' - ' . $socio['Observaciones Comision Directiva'] .PHP_EOL;
+            }
+        }
+        
         return Request::sendMessage($data);
     }
+    
 }
