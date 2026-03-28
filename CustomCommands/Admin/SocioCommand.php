@@ -122,7 +122,7 @@ class SocioCommand extends AdminCommand
                 else
                 $SQL .= " WHERE (`Apellido y nombre` like '%$p1%' OR `Lugar de pago` like '%$p1%' OR Actividad like '%$p1%' 
                 OR Domicilio like '%$p1%' OR `telefono 1` like '%$p1%' OR `E-Mail` like '%$p1%' 
-                OR Estado like '%$p1%' OR `Observaciones Comision Directiva` like '%$p1%') limit 100";  
+                OR Estado like '%$p1%' OR `Observaciones Comision Directiva` like '%$p1%')";  
         if ($p2) {
             $SQL .= " AND ( `Apellido y nombre` like '%$p2%' OR `Lugar de pago` like '%$p2%' OR Actividad like '%$p2%' )    ";
         }
