@@ -88,8 +88,11 @@ class SocioCommand extends AdminCommand
     }
     function query($sql, $params = [])
     {
+        
+        $config = require __DIR__ . '/../config.php';
+       
         try {
-            $pdo = new PDO('mysql:host=' . DB::getHost() . ';dbname=' . DB::getDatabase(), DB::getUser(), DB::getPassword());
+            $pdo = new PDO('mysql:host=' . $config['mysql']['host'] . ';dbname=' . $config['mysql']['database'], $config['mysql']['user'], $config['mysql']['password']);
             $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             $stmt = $pdo->prepare($sql);
             $stmt->execute($params);
