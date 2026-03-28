@@ -18,7 +18,8 @@ class NordenCommand extends UserCommand
     public $cook = "mariweb_session=1c15115edecae9adeb17ce8b689fcda0; mw_lang=EN";
     public $url_post = 'http://meteo.comisionriodelaplata.org/ecsCommand.php?c=telemetry/updateTelemetry&s=0.8081622188540726';
     public $headers = [ ];
-    
+    const COLONIA = 1;
+    const NORDEN = 2;
     public $parametros = ['p'=> 1,
             'p1' => 2,
             'p2' => '2',            
