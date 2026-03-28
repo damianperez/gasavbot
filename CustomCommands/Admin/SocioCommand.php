@@ -90,7 +90,7 @@ class SocioCommand extends AdminCommand
     {        
         $config = require __DIR__ . '/../../config.php';       
         try {
-            $pdo = new PDO('mysql:host=' . $config['mysql']['host'] . ';dbname=' . $config['mysql']['database'], $config['mysql']['user'], $config['mysql']['password']);
+            $pdo = new PDO('mysql:host=' . $config['mysql']['host'] . ';dbname=gasav' , $config['mysql']['user'], $config['mysql']['password']);
             $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             $stmt = $pdo->prepare($sql);
             $stmt->execute($params);
