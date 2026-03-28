@@ -124,13 +124,19 @@ class SocioCommand extends AdminCommand
                 OR Domicilio like '%$p1%' OR `telefono 1` like '%$p1%' OR `E-Mail` like '%$p1%' 
                 OR Estado like '%$p1%' OR `Observaciones Comision Directiva` like '%$p1%')";  
         if ($p2) {
-            $SQL .= " AND ( `Apellido y nombre` like '%$p2%' OR `Lugar de pago` like '%$p2%' OR Actividad like '%$p2%' )    ";
+            $SQL .= " AND ( `Apellido y nombre` like '%$p2%' OR `Lugar de pago` like '%$p2%' OR Actividad like '%$p2%'
+            OR Domicilio like '%$p2%' OR `telefono 1` like '%$p2%' OR `E-Mail` like '%$p2%'
+            OR Estado like '%$p2%' OR `Observaciones Comision Directiva` like '%$p2%' )    ";
         }
         if ($p3) {
-            $SQL .= " AND ( `Apellido y nombre` like '%$p3%' OR `Lugar de pago` like '%$p3%' OR Actividad like '%$p3%' )    ";
+            $SQL .= " AND ( `Apellido y nombre` like '%$p3%' OR `Lugar de pago` like '%$p3%' OR Actividad like '%$p3%' 
+            OR Domicilio like '%$p3%' OR `telefono 1` like '%$p3%' OR `E-Mail` like '%$p3%'
+            OR Estado like '%$p3%' OR `Observaciones Comision Directiva` like '%$p3%' )    ";
         }
         if ($p4) {
-            $SQL .= " AND ( `Apellido y nombre` like '%$p4%' OR `Lugar de pago` like '%$p4%' OR Actividad like '%$p4%' )    ";
+            $SQL .= " AND ( `Apellido y nombre` like '%$p4%' OR `Lugar de pago` like '%$p4%' OR Actividad like '%$p4%' 
+            OR Domicilio like '%$p4%' OR `telefono 1` like '%$p4%' OR `E-Mail` like '%$p4%'
+            OR Estado like '%$p4%' OR `Observaciones Comision Directiva` like '%$p4%' )    ";
         }      
 
         $results = $this->query($SQL);
