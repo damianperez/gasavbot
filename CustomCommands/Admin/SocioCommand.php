@@ -96,6 +96,7 @@ class SocioCommand extends AdminCommand
             $stmt->execute($params);
             return $stmt->fetchAll(PDO::FETCH_ASSOC);
         } catch (PDOException $e) {
+            return  $e->getMessage();
             throw new TelegramException('Database error: ' . $e->getMessage());
         }
     }
@@ -116,6 +117,10 @@ class SocioCommand extends AdminCommand
                 $SQL .= " WHERE (`Apellido y nombre` like '%$text%' OR `Lugar de pago` like '%$text%' OR Actividad like '%$text%')";        
 
         $results = $this->query($SQL);
+        if ( !is_array($results) ) {
+            $data['text'] = 'Error al consultar la base de datos.'.$results;
+            return Request::sendMessage($data);
+        }
         if (empty($results)) {
             $data['text'] = 'No se encontraron socios con ese nombre.';
         } else {
