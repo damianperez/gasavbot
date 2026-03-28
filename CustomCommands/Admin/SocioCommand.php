@@ -108,7 +108,7 @@ class SocioCommand extends AdminCommand
             'chat_id' => $chat_id,
             'text'    => 'Buscando socios...',
         ];
-        $results = $this->query('SELECT * FROM socios WHERE `Apellido y nombre` LIKE :search', ['search' => '%' . $text . '%']);
+        $results = $this->query('SELECT * FROM users WHERE `Apellido y nombre` LIKE :search', ['search' => '%' . $text . '%']);
         if (empty($results)) {
             $data['text'] = 'No se encontraron socios con ese nombre.';
         } else {
