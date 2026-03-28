@@ -109,7 +109,13 @@ class SocioCommand extends AdminCommand
             'text'    => 'Buscando socios...',
             'parse_mode' => 'HTML',
         ];
-        $results = $this->query('SELECT * FROM users WHERE `Apellido y nombre` LIKE :search', ['search' => '%' . $text . '%']);
+        $SQL = "SELECT * FROM socios";
+        if (is_numeric($text)) 
+                $SQL .= " WHERE Nro_socio='$text'";
+                else
+                $SQL .= " WHERE (`Apellido y nombre` like '%$text%' OR `Lugar de pago` like '%$text%' OR Actividad like '%$text%')";        
+
+        $results = $this->query($SQL);
         if (empty($results)) {
             $data['text'] = 'No se encontraron socios con ese nombre.';
         } else {
