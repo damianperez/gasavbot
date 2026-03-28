@@ -89,7 +89,7 @@ class SocioCommand extends AdminCommand
     function query($sql, $params = [])
     {
         
-        $config = require __DIR__ . '/../config.php';
+        $config = require __DIR__ . '/../../config.php';
        
         try {
             $pdo = new PDO('mysql:host=' . $config['mysql']['host'] . ';dbname=' . $config['mysql']['database'], $config['mysql']['user'], $config['mysql']['password']);
